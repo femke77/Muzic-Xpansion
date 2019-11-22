@@ -19,7 +19,18 @@ var firebaseConfig = {
 
 
   $(document).ready(function(){
-      console.log("test")
+
+    var queryURL = "https://api.seatgeek.com/2/performers?q=red+hot&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    var queryURL2 = "https://api.seatgeek.com/2/events?q=red+hot+chili+peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    
+
+    $.ajax({
+        url: queryURL2,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response)
+        });
 
 
 
