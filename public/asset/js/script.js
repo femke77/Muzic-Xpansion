@@ -16,3 +16,12 @@ var firebaseConfig = {
 
   //Firebase database ref
   var database = firebase.database();
+
+
+  $(document).ready(function(){
+      console.log("test")
+
+
+
+
+  });
