@@ -8,24 +8,27 @@ var firebaseConfig = {
     messagingSenderId: "280884255831",
     appId: "1:280884255831:web:9b5914a751d3d6fb0f9712",
     measurementId: "G-RFFRMPBZLJ"
-  };
+};
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-  //Firebase database ref
-  var database = firebase.database();
+//Firebase database ref
+var database = firebase.database();
 
 
-  $(document).ready(function(){
 
-    var queryURL = "https://api.seatgeek.com/2/performers?q=red+hot&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
-    var queryURL2 = "https://api.seatgeek.com/2/events?q=red+hot+chili+peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
-    
+
+
+$(document).ready(function () {
+
+    var queryURL2 = "https://api.seatgeek.com/2/performers?q=red+hot+chili+peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    var queryURL3 = "https://api.seatgeek.com/2/events?performers.slug=red-hot-chili-peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    var input;
 
     $.ajax({
-        url: queryURL2,
+        url: queryURL3,
         method: "GET"
     })
         .then(function (response) {
@@ -33,6 +36,22 @@ var firebaseConfig = {
         });
 
 
+    $("#submit").on("click", function (e) {
+        e.preventDefault();
+        input = $("#test").val();
+        var queryURL = "https://api.seatgeek.com/2/performers?q=" + input +
+            "&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+        var queryURL4 = "https://api.seatgeek.com/2/events?performers.slug=" + input + "&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+        console.log(input);
+        console.log(queryURL4);
+        $.ajax({
+            url: queryURL4,
+            method: "GET"
+        })
+            .then(function (response) {
+                console.log(response)
+            });
 
+    })
 
-  });
+});
