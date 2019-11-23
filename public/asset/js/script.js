@@ -26,7 +26,6 @@ var input = $(".form-control");
 var submit = $("#ytSubmit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-
 $("#ytSubmit").on("click", function (event) {
     // event.preventdefault();
     var inputVal = input.val().trim();
@@ -46,9 +45,6 @@ $("#ytSubmit").on("click", function (event) {
         // var channel = response[0].items.snippet.channelId;
         // var videoTitle = response[0].items.title;
       
-
-        // for (var i = 0; i < results.length; i++) {
-
             var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
             // var p = $("<p>").text("Artist: " + results[i].artist);
            
