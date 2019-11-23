@@ -18,11 +18,19 @@ firebase.analytics();
 
 $(document).ready(function () {
 
+<<<<<<< HEAD
     console.log("test")
+=======
+>>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
 
 });
 
+var database = firebase.database();
+var input = $(".form-control");
+var submit = $("#ytSubmit");
+var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
+<<<<<<< HEAD
 var database = firebase.database();
 var input = $(".form-control");
 var submit = $("#ytSubmit");
@@ -33,6 +41,13 @@ $("#ytSubmit").on("click", function (event) {
     var inputVal = input.val().trim();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
+=======
+$("#ytSubmit").on("click", function (event) {
+    // event.preventdefault();
+    var inputVal = input.val().trim();
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
+
+>>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
 
     $.ajax({
         url: queryURL,
@@ -44,6 +59,7 @@ $("#ytSubmit").on("click", function (event) {
 
         var videoId = response.items[0].id.videoId;
         console.log(videoId)
+<<<<<<< HEAD
 
         var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
 
@@ -53,3 +69,49 @@ $("#ytSubmit").on("click", function (event) {
     });
 
 })
+=======
+        // var channel = response[0].items.snippet.channelId;
+        // var videoTitle = response[0].items.title;
+      
+            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+            // var p = $("<p>").text("Artist: " + results[i].artist);
+           
+            video.attr("src", "https://www.youtube.com/embed/" +videoId);
+            $("#video").append(video)
+        // }
+    });
+
+})
+
+
+//   // displayVideo function re-renders the HTML to display the appropriate content
+//   function displayVideo() {
+//     var music = $(this).attr("data-name");
+//     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + music + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI"
+
+//   // AJAX - youtubeVid call using the GET method
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).done(function (response) {
+//       $("#populated-videos").empty();
+
+//       var results = response.items;
+//       console.log(response);
+//       for (var i = 0; i < results.length; i++) {
+
+// // Creates a div to hold the music
+//         var musicDiv = $("<div>");
+
+
+// // Display youtubeVid    
+//         var youtubeVid = $("<embed>");
+//         $("#populated-videos").prepend(musicDiv); 
+//       }
+     
+//     });
+//   }
+
+  
+// });
+>>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
