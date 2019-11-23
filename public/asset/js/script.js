@@ -37,7 +37,6 @@ $("#ytSubmit").on("click", function (event) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#video").empty();
 
         console.log(queryURL);
         console.log(response);
