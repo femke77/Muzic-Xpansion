@@ -8,20 +8,49 @@ var firebaseConfig = {
     messagingSenderId: "280884255831",
     appId: "1:280884255831:web:9b5914a751d3d6fb0f9712",
     measurementId: "G-RFFRMPBZLJ"
-  };
+};
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-  //Firebase database ref
-  var database = firebase.database();
+//Firebase database ref
+
+$(document).ready(function () {
+
+    console.log("test")
+
+});
 
 
-  $(document).ready(function(){
-      console.log("test")
+var database = firebase.database();
+var input = $(".form-control");
+var submit = $("#ytSubmit");
+var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
+
+$("#ytSubmit").on("click", function(event) {
+    // event.preventdefault();
+    var inputVal = input.val();
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(queryURL);
+        console.log(response);
+
+        var $result = response.data;
+
+        for (var i = 0; i < results.length; i++) {
+
+            var video = $("<div>");
+            var p = $("<p>").text("Artist: " + results[i].artist);
 
 
-  });
+        }
+    });
+
+})
