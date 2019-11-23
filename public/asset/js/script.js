@@ -18,10 +18,6 @@ firebase.analytics();
 
 $(document).ready(function () {
 
-<<<<<<< HEAD
-    console.log("test")
-=======
->>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
 
 });
 
@@ -30,24 +26,11 @@ var input = $(".form-control");
 var submit = $("#ytSubmit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-<<<<<<< HEAD
-var database = firebase.database();
-var input = $(".form-control");
-var submit = $("#ytSubmit");
-var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
-
 $("#ytSubmit").on("click", function (event) {
     // event.preventdefault();
     var inputVal = input.val().trim();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-=======
-$("#ytSubmit").on("click", function (event) {
-    // event.preventdefault();
-    var inputVal = input.val().trim();
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
-
->>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
 
     $.ajax({
         url: queryURL,
@@ -59,17 +42,6 @@ $("#ytSubmit").on("click", function (event) {
 
         var videoId = response.items[0].id.videoId;
         console.log(videoId)
-<<<<<<< HEAD
-
-        var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
-
-        video.attr("src", "https://www.youtube.com/embed/" + videoId);
-        $("#video").append(video)
-
-    });
-
-})
-=======
         // var channel = response[0].items.snippet.channelId;
         // var videoTitle = response[0].items.title;
       
@@ -114,4 +86,3 @@ $("#ytSubmit").on("click", function (event) {
 
   
 // });
->>>>>>> 3ea0ba8ffb964b0ff93ff38af138efffa7c7b264
