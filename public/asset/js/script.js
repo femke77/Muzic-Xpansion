@@ -18,10 +18,8 @@ firebase.analytics();
 
 $(document).ready(function () {
 
-    console.log("test")
 
 });
-
 
 var database = firebase.database();
 var input = $(".form-control");
@@ -47,9 +45,6 @@ $("#ytSubmit").on("click", function (event) {
         // var channel = response[0].items.snippet.channelId;
         // var videoTitle = response[0].items.title;
       
-
-        // for (var i = 0; i < results.length; i++) {
-
             var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
             // var p = $("<p>").text("Artist: " + results[i].artist);
            
@@ -59,3 +54,35 @@ $("#ytSubmit").on("click", function (event) {
     });
 
 })
+
+
+//   // displayVideo function re-renders the HTML to display the appropriate content
+//   function displayVideo() {
+//     var music = $(this).attr("data-name");
+//     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + music + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI"
+
+//   // AJAX - youtubeVid call using the GET method
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).done(function (response) {
+//       $("#populated-videos").empty();
+
+//       var results = response.items;
+//       console.log(response);
+//       for (var i = 0; i < results.length; i++) {
+
+// // Creates a div to hold the music
+//         var musicDiv = $("<div>");
+
+
+// // Display youtubeVid    
+//         var youtubeVid = $("<embed>");
+//         $("#populated-videos").prepend(musicDiv); 
+//       }
+     
+//     });
+//   }
+
+  
+// });
