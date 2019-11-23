@@ -28,10 +28,10 @@ var input = $(".form-control");
 var submit = $("#ytSubmit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-$("#ytSubmit").on("click", function(event) {
+$("#ytSubmit").on("click", function (event) {
     // event.preventdefault();
-    var inputVal = input.val();
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
+    var inputVal = input.val().trim();
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
 
     $.ajax({
@@ -42,15 +42,20 @@ $("#ytSubmit").on("click", function(event) {
         console.log(queryURL);
         console.log(response);
 
-        var $result = response.data;
+        var videoId = response.items[0].id.videoId;
+        console.log(videoId)
+        // var channel = response[0].items.snippet.channelId;
+        // var videoTitle = response[0].items.title;
+      
 
-        for (var i = 0; i < results.length; i++) {
+        // for (var i = 0; i < results.length; i++) {
 
-            var video = $("<div>");
-            var p = $("<p>").text("Artist: " + results[i].artist);
-
-
-        }
+            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+            // var p = $("<p>").text("Artist: " + results[i].artist);
+           
+            video.attr("src", "https://www.youtube.com/embed/" +videoId);
+            $("#video").append(video)
+        // }
     });
 
 })
