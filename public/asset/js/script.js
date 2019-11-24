@@ -23,35 +23,50 @@ var database = firebase.database();
 
 $(document).ready(function () {
 
-    var queryURL2 = "https://api.seatgeek.com/2/performers?q=red+hot+chili+peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
-    var queryURL3 = "https://api.seatgeek.com/2/events?performers.slug=red-hot-chili-peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    // var queryURL2 = "https://api.seatgeek.com/2/performers?q=red+hot+chili+peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+    // var queryURL3 = "https://api.seatgeek.com/2/events?performers.slug=red-hot-chili-peppers&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
     var input;
 
-    $.ajax({
-        url: queryURL3,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response)
-        });
 
 
     $("#submit").on("click", function (e) {
         e.preventDefault();
-        input = $("#test").val();
-        var queryURL = "https://api.seatgeek.com/2/performers?q=" + input +
+        input = $("#test").val().trim();
+        var queryURLPerformers = "https://api.seatgeek.com/2/performers?q=" + input +
             "&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
-        var queryURL4 = "https://api.seatgeek.com/2/events?performers.slug=" + input + "&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
         console.log(input);
-        console.log(queryURL4);
+        console.log(queryURLPerformers);
         $.ajax({
-            url: queryURL4,
+            url: queryURLPerformers,
             method: "GET"
         })
             .then(function (response) {
-                console.log(response)
+                var hasEvent = response.performers[0].has_upcoming_events;
+                console.log("performer has event?" + hasEvent);
+                if (hasEvent === true){
+                    input = input.split(' ').join('-');
+                    var queryURLEvents = "https://api.seatgeek.com/2/events?performers.slug=" + input + 
+                        "&client_id=MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ"
+                    console.log(input)
+                    console.log(queryURLEvents);
+                    $.ajax({
+                        url: queryURLEvents,
+                        method: "GET"
+                    })
+                        .then(function (response) {
+                            console.log(response);
+                            var results = response.events;
+                            for (let i = 0; i < results.length; i++) {
+                                console.log("result " + results[i].title);
+                                
+                            }
+                            
+
+                        });
+
+                }
             });
 
-    })
+    });
 
 });
