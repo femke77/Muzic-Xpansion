@@ -18,33 +18,32 @@
 
 <body>
   <!-- YOUTUBE API CONTAINER -->
-<div id="youtube search">
+  <div id="youtube search">
     <input class="form-control" type="text" placeholder="Find a video">
-    <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>
-    <div id="video">Watch your video here!!!</div>
-    <iframe width="893" height="502" src="https://www.youtube.com/embed/-rAJdgOZsZk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="300" height="150" src="https://www.youtube.com/embed/qrO4YZeyl0I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+    <button type="button" id="submit" class="btn btn-primary">Submit</button>
+    <div id="video1">Watch your video here!!!</div>
+      <div id="video"></div>
+      <button type="button" id="rec" class="btn btn-primary">recomended</button>
+      <div id="video2"></div>
+      </div>
 
 
-  
+      <!-- Bootstrap and JQuery (full)-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-  <!-- Bootstrap and JQuery (full)-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
- 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+      <!-- Firebase -->
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
 
-  <script src="asset/js/script.js"></script>
+      <script src="asset/js/script.js"></script>
 
 </body>
 

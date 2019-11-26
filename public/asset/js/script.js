@@ -25,13 +25,14 @@ $(document).ready(function () {
 
 var database = firebase.database();
 var input = $(".form-control");
-var submit = $("#ytSubmit");
+var submit = $("#submit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-$("#ytSubmit").on("click", function (event) {
-    // event.preventdefault();
+$("#submit").on("click", function (event) {
+
+    event.preventDefault();
     var inputVal = input.val().trim();
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=" + apiKey;
 
 
     $.ajax({
@@ -42,20 +43,96 @@ $("#ytSubmit").on("click", function (event) {
         console.log(queryURL);
         console.log(response);
 
-        var videoId = response.items[0].id.videoId;
-        console.log(videoId)
-        // var channel = response[0].items.snippet.channelId;
-        // var videoTitle = response[0].items.title;
-      
 
-        // for (var i = 0; i < results.length; i++) {
+        var results = response.items;
 
-            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
-            // var p = $("<p>").text("Artist: " + results[i].artist);
-           
-            video.attr("src", "https://www.youtube.com/embed/" +videoId);
-            $("#video").append(video)
-        // }
+        var videoId;
+        $("#video").empty();
+        for (var i = 0; i < results.length; i++) {
+            videoId = results[i].id.videoId;
+            console.log(videoId)
+
+            // var list = $("<ul>");
+            // list.addClass("list-group");
+            // var listItem = $("<li class='list-group-item'>");
+            // $("#listItem").append("<h4>" + results[i].snippet.title + "</h4>");
+            // $("#listItem").append("<h4>" + results[i].snippet.title + "</h4>");
+            // $("#listItem").append("<h4>" + results[i].snippet.description + "</h4>");
+            // $("#listItem").append("<h4>" + results[i].snippet.publishedAt + "</h4>");
+
+            var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+
+
+            video.attr("src", "https://www.youtube.com/embed/" + videoId);
+
+            var parTitle = results[i].snippet.title;
+            // var pardesc = $("<p>").html("Description : " + results[i].snippet.description);
+            // var parPub = $("<p>").html("Published At : " + results[i].snippet.publishedAt);
+            // console.log("tittle: " + results[i].snippet.title);
+
+            var $eventList = $("<ul>");
+            $eventList.addClass("list-group");
+            $("#video").append($eventList);
+            var $eventListItem = $("<li class='list-group-item'>");
+            $eventListItem.append(video);
+            $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
+            $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
+            $eventListItem.append("<h6>" + " Published : " + results[i].snippet.publishedAt + "</h6>");
+            // $eventListItem.append("<h6>" +  parTitle + "</h6>");
+
+            $eventList.append($eventListItem);
+            //$("#video").append(video, parTitle, pardesc, parPub)
+
+
+
+        }
+        getRelatedVideo(videoId);
     });
 
 })
+function getRelatedVideo(videoId) {
+
+    $("#rec").on("click", function (event) {
+
+
+        event.preventDefault();
+
+
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + videoId + "&type=video&key=" + apiKey;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            console.log(queryURL);
+            console.log(response);
+
+            var results = response.items;
+
+            var videoId;
+            $("#video2").empty();
+            for (var i = 0; i < results.length; i++) {
+                videoId = results[i].id.videoId;
+                console.log(videoId)
+                var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+                video.attr("src", "https://www.youtube.com/embed/" + videoId);
+                var parTitle = results[i].snippet.title;
+
+                var $eventList = $("<ul>");
+                $eventList.addClass("list-group");
+                $("#video2").append($eventList);
+                var $eventListItem = $("<li class='list-group-item'>");
+                $eventListItem.append(video);
+                $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
+                $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
+                $eventListItem.append("<h6>" + "Published : " + results[i].snippet.publishedAt + "</h6>");
+                $eventList.append($eventListItem);
+            }
+            getRelatedVideo(videoId);
+        });
+
+    });
+
+}
+
