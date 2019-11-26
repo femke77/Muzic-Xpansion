@@ -41,8 +41,8 @@ $("#submit").on("click", function (e) {
         .then(function (response) {
             console.log(response)
             if (response.performers.length === 0) {
-                //make modal
-                console.log("Performer not found");
+                $("#modal-message").text("Performer not found. Please check spelling and try again.");
+                $("#oops-modal").modal("show");
             } else {
                 var hasEvent = response.performers[0].has_upcoming_events;
                 imageURL = response.performers[0].image;
