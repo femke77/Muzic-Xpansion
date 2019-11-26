@@ -84,6 +84,53 @@ $("#ytSubmit").on("click", function (event) {
             $("#video").append(video);
         }
     });
+// ==============
+// SIGNUP FORM 
+// ==============
 
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    function allLetter(uname) { 
+    var letters = /^[A-Za-z]+$/;
+    if(uname.value.match(letters)){
+    return true;
+    } else {
+    alert('Username must have alphabet characters only');
+    uname.focus();
+    return false; 
+    }
+    }
+if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
   
+
+// ==============
+// LOGIN  
+// ==============
+
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+   
+  });
+
+// ==============
+// SIGN IN  
+// ==============
+firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+  
+// ==============
+// MODALS FOR LOGIN/SIGNUP ERRORS  
+// ==============
+
+
 })
