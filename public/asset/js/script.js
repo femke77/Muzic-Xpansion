@@ -20,10 +20,14 @@ var database = firebase.database();
 var key = "MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ";
 var input;
 var imageURL;
+var numEvents;
+var page = 1;
+var limit = 10;
+var numPages;
 
 /**
  * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
- * and find out if performer exists and has event coming up
+ * and find out if performer exists and has event coming up. Sorting is by date/time.
  */
 $("#submit").on("click", function (e) {
     e.preventDefault();
@@ -32,8 +36,7 @@ $("#submit").on("click", function (e) {
     input = input.split(' ').join('-');
     var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
         "&client_id=" + key;
-    console.log(input);
-    console.log(queryURLPerformers);
+
     $.ajax({
         url: queryURLPerformers,
         method: "GET"
@@ -46,12 +49,13 @@ $("#submit").on("click", function (e) {
             } else {
                 var hasEvent = response.performers[0].has_upcoming_events;
                 imageURL = response.performers[0].image;
-                console.log("performer has event? " + hasEvent);
                 if (hasEvent === true) {
+                    numEvents = response.performers[0].num_upcoming_events;
+                    numPages = Math.ceil(numEvents / limit);
                     getEvents();
+                    $("#next-btn").attr("disabled", false);
                 } else {
                     $("#event-section").append("No upcoming events for this performer.")
-                    console.log("No upcoming events for this performer.");
                 }
             }
         });
@@ -60,19 +64,20 @@ $("#submit").on("click", function (e) {
 /**
  * Gets events from the Seat Geek /events endpoint using performers argument from user input box
  * MomentJS is used to convert the date time to a more readable format.
- * list-group is used to display multiple events. 
+ * list-group is used to display multiple events on the card in index
  */
 function getEvents() {
+    $("#event-section").empty();
     var queryURLEvents = "https://api.seatgeek.com/2/events?performers.slug=" + input +
-        "&client_id=" + key;
-    console.log(input)
-    console.log(queryURLEvents);
+        "&per_page=" + limit + "&page=" + page + "&client_id=" + key;
+
     $.ajax({
         url: queryURLEvents,
         method: "GET"
     })
         .then(function (response) {
             console.log(response);
+
             var results = response.events;          
             for (let i = 0; i < results.length; i++) {             
                 var $eventList = $("<ul>");
@@ -107,4 +112,30 @@ function getEvents() {
 
 
 
+$("#next-btn").on("click", function(){
+    
+    if (page <= numPages){
+        page++;
+        $("#prev-btn").attr("disabled", false)
+        getEvents();
+        if (page === numPages) {
+            $("#next-btn").attr("disabled", true);
+            
+        }  
+    } 
+  
+});
 
+$("#prev-btn").on("click", function(){
+    if (page <= numPages){
+        page--;
+        $("#next-btn").attr("disabled", false)
+        getEvents();
+        if (page === 1) {
+            $("#prev-btn").attr("disabled", true);
+            
+        }  
+        
+    } 
+
+});
