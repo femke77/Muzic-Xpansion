@@ -25,10 +25,10 @@ $(document).ready(function () {
 
 var database = firebase.database();
 var input = $(".form-control");
-var submit = $("#submit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
+var videoId;
 
-$("#submit").on("click", function (event) {
+$("#ytSubmit").on("click", function (event) {
 
     event.preventDefault();
     var inputVal = input.val().trim();
@@ -46,7 +46,7 @@ $("#submit").on("click", function (event) {
 
         var results = response.items;
 
-        var videoId;
+      
         $("#video").empty();
         for (var i = 0; i < results.length; i++) {
             videoId = results[i].id.videoId;
@@ -84,13 +84,14 @@ $("#submit").on("click", function (event) {
             //$("#video").append(video, parTitle, pardesc, parPub)
 
 
-
         }
-        getRelatedVideo(videoId);
+     
     });
 
 })
-function getRelatedVideo(videoId) {
+
+
+
 
     $("#rec").on("click", function (event) {
 
@@ -129,10 +130,10 @@ function getRelatedVideo(videoId) {
                 $eventListItem.append("<h6>" + "Published : " + results[i].snippet.publishedAt + "</h6>");
                 $eventList.append($eventListItem);
             }
-            getRelatedVideo(videoId);
+          
         });
 
     });
 
-}
+
 
