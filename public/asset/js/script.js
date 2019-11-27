@@ -1,17 +1,4 @@
-// ==============
-// GENERAL APP PROCESS
-// ==============
-
-// User begins by searching using the YouTube search feature
-// They may begin building a playlist to stream
-// If possible, once a video is done playing, the next one will begin.
-// At any point of their search, they have the choice to click through links to open up in the accordion. The click functions will be View Nearby Concerts or View Closest Concert (by Date)
-
-// ==============
-// FIREBASE
-// ==============
-
-// Firebase Config
+//Firebase Config
 var firebaseConfig = {
     apiKey: "AIzaSyCh61fKpQfYBZ0MRgJcUfEcop57szkaAnc",
     authDomain: "deploy-f0b72.firebaseapp.com",
@@ -27,63 +14,216 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-// Firebase database ref
-
-$(document).ready(function () {
-
-
-});
-
 var database = firebase.database();
 var input = $(".form-control");
-var submit = $("#ytSubmit");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
-
-// ==============
-// YOUTUBE LOGIC
-// ==============
+var videoId;
+var seatGeekKey = "MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ";
+var input;
+var imageURL;
+var numEvents;
+var page = 1;
+var limit = 10;
+var numPages;
 
 $("#ytSubmit").on("click", function (event) {
-    // event.preventdefault();
-    var inputVal = input.val().trim();
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 
-    
+    event.preventDefault();
+    var inputVal = $("#search-input").val().trim();
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=" + apiKey;
+
     $.ajax({
         url: queryURL,
-        method: "GET",
-        data: {
-            maxResults:4
-        }
+        method: "GET"
     }).then(function (response) {
 
         console.log(queryURL);
         console.log(response);
-        for (var i = 0; i < results.length; i++) {
 
-// Creates a div to hold the music
-        var musicDiv = $("<div>");
 
-// Add a title to each video
-    var title = results[i].title;
-    var viewTitle = $("<p>").text(title);
-    musicDiv.prepend(viewTitle);
+        var results = response.items;
 
-// Display music video
-        var videoId = response.items[0].id.videoId;
-        console.log(videoId)
-        // var channel = response[0].items.snippet.channelId;
-        // var videoTitle = response[0].items.title;
       
+        $("#video").empty();
 
-            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
-            // var p = $("<p>").text("Artist: " + results[i].artist);
-           
-           
+        for (var i = 0; i < results.length; i++) {
+            videoId = results[i].id.videoId;
+            console.log(videoId)
+
+            var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
-            $("#video").append(video);
+
+            var $eventList = $("<ul>");
+            $eventList.addClass("list-group");
+            $("#video").append($eventList);
+            var $eventListItem = $("<li class='list-group-item'>");
+            $eventListItem.append(video);
+            $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
+            // LOOK INTO DOT DOT DOT LINK FOR DISCRIPTION!!!!
+            // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
+            $eventListItem.append("<h6>" + " Published : " + results[i].snippet.publishedAt + "</h6>");
+            
+
+            $eventList.append($eventListItem);
+
         }
+     
+    });
+    checkForEvents();
+
+});
+
+/**
+ * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
+ * and find out if performer exists and has event coming up. Sorting is by date/time.
+ */
+function checkForEvents() {
+   
+    $("#event-section").empty();
+    input = $("#search-input").val().trim();
+    input = input.split(' ').join('-');
+    var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
+        "&client_id=" + seatGeekKey;
+
+    $.ajax({
+        url: queryURLPerformers,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response)
+            if (response.performers.length === 0) {
+                $("#modal-message").text("Performer not found. Please check spelling and try again.");
+                $("#oops-modal").modal("show");
+            } else {
+                var hasEvent = response.performers[0].has_upcoming_events;
+                imageURL = response.performers[0].image;
+                if (hasEvent === true) {
+                    numEvents = response.performers[0].num_upcoming_events;
+                    numPages = Math.ceil(numEvents / limit);
+                    getEvents();
+                    $("#next-btn").prop("disabled", false);
+                } else {
+                    $("#event-section").append("No upcoming events for this performer.")
+                }
+            }
+        });
+}
+
+/**
+ * Gets events from the Seat Geek /events endpoint using performers argument from user input box
+ * MomentJS is used to convert the date time to a more readable format.
+ * list-group is used to display multiple events on the card in index
+ */
+function getEvents() {
+    $("#event-section").empty();
+    var queryURLEvents = "https://api.seatgeek.com/2/events?performers.slug=" + input +
+        "&per_page=" + limit + "&page=" + page + "&client_id=" + seatGeekKey;
+
+    $.ajax({
+        url: queryURLEvents,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response);
+
+            var results = response.events;          
+            for (let i = 0; i < results.length; i++) {             
+                var $eventList = $("<ul>");
+                $eventList.addClass("list-group");
+                $("#event-section").append($eventList);
+                var $eventListItem = $("<li class='list-group-item'>");
+                $eventListItem.append("<h4>" + results[i].title + "</h4>");
+                if (results[i].date_tbd == false) {
+                    var dateTime = results[i].datetime_local;
+                    dateTime = dateTime.split('T').join(' ');
+                    var format = "YYYY/MM/DD hh:mm:ss";
+                    var convertedDateTime = moment(dateTime, format)
+                    $eventListItem.append(convertedDateTime.format("MM/DD/YY hh:mm A") + "<br/>");                 
+                } else {
+                    $eventListItem.append("Date and Time TBD")                 
+                }
+                $eventListItem.append("Venue: " + results[i].venue.name + "<br/>");
+                $eventListItem.append("Location: " + results[i].venue.display_location + "<br/>");
+                var $ticketBtn = $("<button>", {
+                    text: "Buy Tickets",
+                    click: function(){
+                        window.open(results[i].url);
+                    }
+                })
+                $eventListItem.append($ticketBtn);
+
+                $eventList.append($eventListItem);
+            }
+        })
+}
+
+
+
+//--PAGINATION METHODS--------------------------------
+$("#next-btn").on("click", function(){    
+    if (page <= numPages){
+        page++;
+        $("#prev-btn").prop("disabled", false)
+        getEvents();
+        if (page === numPages) {
+            $("#next-btn").prop("disabled", true);            
+        }  
+    } 
+});
+
+$("#prev-btn").on("click", function(){
+    if (page <= numPages){
+        page--;
+        $("#next-btn").prop("disabled", false)
+        getEvents();
+        if (page === 1) {
+            $("#prev-btn").prop("disabled", true);            
+        }      
+    } 
+});
+
+
+    $("#rec").on("click", function (event) {
+
+
+        event.preventDefault();
+
+
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + videoId + "&type=video&key=" + apiKey;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            console.log(queryURL);
+            console.log(response);
+
+            var results = response.items;
+
+            var videoId;
+            $("#video2").empty();
+            for (var i = 0; i < results.length; i++) {
+                videoId = results[i].id.videoId;
+                console.log(videoId)
+                var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+                video.attr("src", "https://www.youtube.com/embed/" + videoId);
+                var parTitle = results[i].snippet.title;
+
+                var $eventList = $("<ul>");
+                $eventList.addClass("list-group");
+                $("#video2").append($eventList);
+                var $eventListItem = $("<li class='list-group-item'>");
+                $eventListItem.append(video);
+                $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
+                // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
+                $eventListItem.append("<h6>" + "Published : " + results[i].snippet.publishedAt + "</h6>");
+                $eventList.append($eventListItem);
+            }
+          
+        });
+
     });
 
-  
-})
+// ADD FUNCTION TO MODAL IF EXCUTED IF PERFORMER NOT FOUND, DO NOT EXCIQUTE YOUTUBE SEACH!
