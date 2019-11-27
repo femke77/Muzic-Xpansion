@@ -227,4 +227,3 @@ $("#prev-btn").on("click", function(){
     });
 
 // ADD FUNCTION TO MODAL IF EXCUTED IF PERFORMER NOT FOUND, DO NOT EXCIQUTE YOUTUBE SEACH!
-
