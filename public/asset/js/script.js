@@ -29,6 +29,10 @@ var numPages;
 $("#ytSubmit").on("click", function (event) {
 
     event.preventDefault();
+
+    $("#prev-btn").prop("disabled", true); 
+    $("#next-btn").prop("disabled", true); 
+    
     var inputVal = $("#search-input").val().trim();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=" + apiKey;
 
@@ -81,6 +85,8 @@ $("#ytSubmit").on("click", function (event) {
 function checkForEvents() {
    
     $("#event-section").empty();
+
+    
     input = $("#search-input").val().trim();
     input = input.split(' ').join('-');
     var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
@@ -102,7 +108,9 @@ function checkForEvents() {
                     numEvents = response.performers[0].num_upcoming_events;
                     numPages = Math.ceil(numEvents / limit);
                     getEvents();
-                    $("#next-btn").prop("disabled", false);
+                    if (numEvents > limit){
+                        $("#next-btn").prop("disabled", false);
+                    }                   
                 } else {
                     $("#event-section").append("No upcoming events for this performer.")
                 }
@@ -183,6 +191,7 @@ $("#prev-btn").on("click", function(){
     } 
 });
 
+//-------------------------------------------------------
 
     $("#rec").on("click", function (event) {
 
