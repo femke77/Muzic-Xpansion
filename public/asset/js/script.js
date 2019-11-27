@@ -14,7 +14,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-//Firebase database ref
 var database = firebase.database();
 
 var key = "MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ";
@@ -53,7 +52,7 @@ $("#submit").on("click", function (e) {
                     numEvents = response.performers[0].num_upcoming_events;
                     numPages = Math.ceil(numEvents / limit);
                     getEvents();
-                    $("#next-btn").attr("disabled", false);
+                    $("#next-btn").prop("disabled", false);
                 } else {
                     $("#event-section").append("No upcoming events for this performer.")
                 }
@@ -111,31 +110,25 @@ function getEvents() {
 
 
 
-
-$("#next-btn").on("click", function(){
-    
+//--PAGINATION METHODS--------------------------------
+$("#next-btn").on("click", function(){    
     if (page <= numPages){
         page++;
-        $("#prev-btn").attr("disabled", false)
+        $("#prev-btn").prop("disabled", false)
         getEvents();
         if (page === numPages) {
-            $("#next-btn").attr("disabled", true);
-            
+            $("#next-btn").prop("disabled", true);            
         }  
     } 
-  
 });
 
 $("#prev-btn").on("click", function(){
     if (page <= numPages){
         page--;
-        $("#next-btn").attr("disabled", false)
+        $("#next-btn").prop("disabled", false)
         getEvents();
         if (page === 1) {
-            $("#prev-btn").attr("disabled", true);
-            
-        }  
-        
+            $("#prev-btn").prop("disabled", true);            
+        }      
     } 
-
 });
