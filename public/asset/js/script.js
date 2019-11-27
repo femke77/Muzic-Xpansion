@@ -159,7 +159,6 @@ function getEvents() {
 }
 
 
-
 //--PAGINATION METHODS--------------------------------
 $("#next-btn").on("click", function(){    
     if (page <= numPages){
