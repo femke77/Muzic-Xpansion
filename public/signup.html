@@ -14,7 +14,7 @@
   <link href="asset/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="asset/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -70,31 +70,35 @@
 
   <!-- SIGN UP -->
   <div class="container" style="padding:75px;width:500px;">
-  <form>
+  <form id="registrationForm">
       <div class="form-group">
-        <label for="EmailAddress">Email Address</label>
-        <input type="email" class="form-control" id="uemail" aria-describedby="emailHelp" placeholder="youremail@domain.com" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="registrationEmail">Email Address</label>
+        <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp" placeholder="youremail@domain.com" required>
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="Password" id="password">Create Password</label>
+        <label for="createPassword" id="createPassword">Create Password</label>
         <input type="password" class="form-control" id="newPassword" placeholder="Create password" required>
         <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and punctuation.</small>
       </div>
       <div class="form-group">
-          <label for="Password" id="confirmPassword">Confirm Password</label>
+          <label for="confirmPassword" id="confirmPassword">Confirm Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Type the same password" required>
         </div>
-        <div class="form-group">
-            <label for="Username">Username</label>
-            <input type="username" class="form-control" id="username" placeholder="Create a Username">
+        <div cla)ss="form-group">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" id="newUsername" placeholder="Create a Username">
           </div>
       <button type="submit" class="btn btn-primary" id="newUser">Sign Up</button>
     </form>
 
   </div>
 
-<!-- Contact Section -->
+
+<!-- REGISTRATION CONFIRMATION -->
+<div id="registered"></div>
+
+<!-- CONTACT SECTION/FOOTER -->
 <section class="contact-section bg-black">
     <div class="container">
 
@@ -146,12 +150,14 @@
      crossorigin="anonymous"></script>
 
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
 
+   <!-- FIREBASE -->
+   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+   <script defer src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="asset/jquery/jquery.min.js"></script>
@@ -164,6 +170,7 @@
   <script src="asset/js/grayscale.min.js"></script>
 
   <!-- JAVASCRIPT -->
+  <script src="asset/js/auth.js"></script>
   <script src="asset/js/script.js"></script>
 
 </body>

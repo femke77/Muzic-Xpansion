@@ -12,9 +12,11 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
-var database = firebase.database();
+// FIREBASE AUTH & FIRESTORE REFERENCES
+const auth = firebase.auth;
+const db = firebase.firestore;
+
 var input = $(".form-control");
 var apiKey = "AIzaSyAfNZnAU5IoLkNDkr3zbWGhWLJJcDwd7rI";
 var videoId;
@@ -157,6 +159,7 @@ function getEvents() {
             }
         })
 }
+
 
 
 //--PAGINATION METHODS--------------------------------
