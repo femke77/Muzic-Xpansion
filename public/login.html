@@ -69,16 +69,16 @@
 
   <!-- SIGN UP -->
   <div class="container" style="padding:75px;width:500px;">
-  <form>
+  <form id="login">
       <div class="form-group">
-        <label for="Username">Username</label>
-        <input type="username" class="form-control" id="userLogin" required>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required>
       </div>
       <div class="form-group">
           <label for="Password" id="password">Password</label>
           <input type="password" class="form-control" id="userPassword" required>
         </div>
-      <button type="submit" class="btn btn-primary" id="login">Log In</button>
+      <button type="submit" class="btn btn-primary" id="login-button">Log In</button>
     </form>
 
   </div>
@@ -124,36 +124,26 @@
       Copyright &copy; muzicXpansion
     </div>
   </footer>
-
-   <!-- Bootstrap and JQuery (full)-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-     crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-     crossorigin="anonymous"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
 
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="asset/jquery/jquery.min.js"></script>
+<script src="asset/js/bootstrap.bundle.min.js"></script>
 
+<!-- Plugin JavaScript -->
+<script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="asset/jquery/jquery.min.js"></script>
-  <script src="asset/js/bootstrap.bundle.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="asset/js/grayscale.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="asset/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="asset/js/grayscale.min.js"></script>
-
-  <!-- JAVASCRIPT -->
-  <script src="asset/js/script.js"></script>
+<!-- JAVASCRIPT -->
+<script src="asset/js/script.js"></script>
+<script src="asset/js/auth.js"></script>
 
 </body>
 
