@@ -232,4 +232,3 @@ $("#ytSubmit").on("click", function (event) {
     });
 
 // ADD FUNCTION TO MODAL IF EXCUTED IF PERFORMER NOT FOUND, DO NOT EXCIQUTE YOUTUBE SEACH!
-
