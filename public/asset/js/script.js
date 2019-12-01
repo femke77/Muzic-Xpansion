@@ -45,7 +45,7 @@ $("#ytSubmit").on("click", function (event) {
 
         var results = response.items;
 
-      
+
         $("#video").empty();
 
         for (var i = 0; i < results.length; i++) {
@@ -65,125 +65,130 @@ $("#ytSubmit").on("click", function (event) {
             // LOOK INTO DOT DOT DOT LINK FOR DISCRIPTION!!!!
             // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
             $eventListItem.append("<h6>" + " Published : " + results[i].snippet.publishedAt + "</h6>");
-            
+
 
             $eventList.append($eventListItem);
 
-        }
-     
+            // if (response.performers.length === 0) {
+            //     $("#modal-message").text("Performer not found. Please check spelling and try again.");
+            //     $("#oops-modal").modal("show");
+            // }else{
+            //     $("#video").append("No upcoming events for this performer.")
+            // }
+
+        };
+        checkForEvents();
+
     });
-    checkForEvents();
-
 });
+    /**
+     * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
+     * and find out if performer exists and has event coming up. Sorting is by date/time.
+     */
+    function checkForEvents() {
 
-/**
- * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
- * and find out if performer exists and has event coming up. Sorting is by date/time.
- */
-function checkForEvents() {
-   
-    $("#event-section").empty();
-    input = $("#search-input").val().trim();
-    input = input.split(' ').join('-');
-    var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
-        "&client_id=" + seatGeekKey;
+        $("#event-section").empty();
+        input = $("#search-input").val().trim();
+        input = input.split(' ').join('-');
+        var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
+            "&client_id=" + seatGeekKey;
 
-    $.ajax({
-        url: queryURLPerformers,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response)
-            if (response.performers.length === 0) {
-                $("#modal-message").text("Performer not found. Please check spelling and try again.");
-                $("#oops-modal").modal("show");
-            } else {
-                var hasEvent = response.performers[0].has_upcoming_events;
-                imageURL = response.performers[0].image;
-                if (hasEvent === true) {
-                    numEvents = response.performers[0].num_upcoming_events;
-                    numPages = Math.ceil(numEvents / limit);
-                    getEvents();
-                    $("#next-btn").prop("disabled", false);
-                } else {
-                    $("#event-section").append("No upcoming events for this performer.")
-                }
-            }
-        });
-}
-
-/**
- * Gets events from the Seat Geek /events endpoint using performers argument from user input box
- * MomentJS is used to convert the date time to a more readable format.
- * list-group is used to display multiple events on the card in index
- */
-function getEvents() {
-    $("#event-section").empty();
-    var queryURLEvents = "https://api.seatgeek.com/2/events?performers.slug=" + input +
-        "&per_page=" + limit + "&page=" + page + "&client_id=" + seatGeekKey;
-
-    $.ajax({
-        url: queryURLEvents,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response);
-
-            var results = response.events;          
-            for (let i = 0; i < results.length; i++) {             
-                var $eventList = $("<ul>");
-                $eventList.addClass("list-group");
-                $("#event-section").append($eventList);
-                var $eventListItem = $("<li class='list-group-item'>");
-                $eventListItem.append("<h4>" + results[i].title + "</h4>");
-                if (results[i].date_tbd == false) {
-                    var dateTime = results[i].datetime_local;
-                    dateTime = dateTime.split('T').join(' ');
-                    var format = "YYYY/MM/DD hh:mm:ss";
-                    var convertedDateTime = moment(dateTime, format)
-                    $eventListItem.append(convertedDateTime.format("MM/DD/YY hh:mm A") + "<br/>");                 
-                } else {
-                    $eventListItem.append("Date and Time TBD")                 
-                }
-                $eventListItem.append("Venue: " + results[i].venue.name + "<br/>");
-                $eventListItem.append("Location: " + results[i].venue.display_location + "<br/>");
-                var $ticketBtn = $("<button>", {
-                    text: "Buy Tickets",
-                    click: function(){
-                        window.open(results[i].url);
-                    }
-                })
-                $eventListItem.append($ticketBtn);
-
-                $eventList.append($eventListItem);
-            }
+        $.ajax({
+            url: queryURLPerformers,
+            method: "GET"
         })
-}
+            .then(function (response) {
+                console.log(response)
+                if (response.performers.length === 0) {
+                    $("#modal-message").text("Performer not found. Please check spelling and try again.");
+                    $("#oops-modal").modal("show");
+                } else {
+                    var hasEvent = response.performers[0].has_upcoming_events;
+                    imageURL = response.performers[0].image;
+                    if (hasEvent === true) {
+                        numEvents = response.performers[0].num_upcoming_events;
+                        numPages = Math.ceil(numEvents / limit);
+                        getEvents();
+                        $("#next-btn").prop("disabled", false);
+                    } else {
+                        $("#event-section").append("No upcoming events for this performer.")
+                    }
+                }
+            });
+    }
+
+    /**
+     * Gets events from the Seat Geek /events endpoint using performers argument from user input box
+     * MomentJS is used to convert the date time to a more readable format.
+     * list-group is used to display multiple events on the card in index
+     */
+    function getEvents() {
+        $("#event-section").empty();
+        var queryURLEvents = "https://api.seatgeek.com/2/events?performers.slug=" + input +
+            "&per_page=" + limit + "&page=" + page + "&client_id=" + seatGeekKey;
+
+        $.ajax({
+            url: queryURLEvents,
+            method: "GET"
+        })
+            .then(function (response) {
+                console.log(response);
+
+                var results = response.events;
+                for (let i = 0; i < results.length; i++) {
+                    var $eventList = $("<ul>");
+                    $eventList.addClass("list-group");
+                    $("#event-section").append($eventList);
+                    var $eventListItem = $("<li class='list-group-item'>");
+                    $eventListItem.append("<h4>" + results[i].title + "</h4>");
+                    if (results[i].date_tbd == false) {
+                        var dateTime = results[i].datetime_local;
+                        dateTime = dateTime.split('T').join(' ');
+                        var format = "YYYY/MM/DD hh:mm:ss";
+                        var convertedDateTime = moment(dateTime, format)
+                        $eventListItem.append(convertedDateTime.format("MM/DD/YY hh:mm A") + "<br/>");
+                    } else {
+                        $eventListItem.append("Date and Time TBD")
+                    }
+                    $eventListItem.append("Venue: " + results[i].venue.name + "<br/>");
+                    $eventListItem.append("Location: " + results[i].venue.display_location + "<br/>");
+                    var $ticketBtn = $("<button>", {
+                        text: "Buy Tickets",
+                        click: function () {
+                            window.open(results[i].url);
+                        }
+                    })
+                    $eventListItem.append($ticketBtn);
+
+                    $eventList.append($eventListItem);
+                }
+            })
+    }
 
 
 
-//--PAGINATION METHODS--------------------------------
-$("#next-btn").on("click", function(){    
-    if (page <= numPages){
-        page++;
-        $("#prev-btn").prop("disabled", false)
-        getEvents();
-        if (page === numPages) {
-            $("#next-btn").prop("disabled", true);            
-        }  
-    } 
-});
+    //--PAGINATION METHODS--------------------------------
+    $("#next-btn").on("click", function () {
+        if (page <= numPages) {
+            page++;
+            $("#prev-btn").prop("disabled", false)
+            getEvents();
+            if (page === numPages) {
+                $("#next-btn").prop("disabled", true);
+            }
+        }
+    });
 
-$("#prev-btn").on("click", function(){
-    if (page <= numPages){
-        page--;
-        $("#next-btn").prop("disabled", false)
-        getEvents();
-        if (page === 1) {
-            $("#prev-btn").prop("disabled", true);            
-        }      
-    } 
-});
+    $("#prev-btn").on("click", function () {
+        if (page <= numPages) {
+            page--;
+            $("#next-btn").prop("disabled", false)
+            getEvents();
+            if (page === 1) {
+                $("#prev-btn").prop("disabled", true);
+            }
+        }
+    });
 
 
     $("#rec").on("click", function (event) {
@@ -223,7 +228,7 @@ $("#prev-btn").on("click", function(){
                 $eventListItem.append("<h6>" + "Published : " + results[i].snippet.publishedAt + "</h6>");
                 $eventList.append($eventListItem);
             }
-          
+
         });
 
     });
