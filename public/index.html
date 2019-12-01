@@ -5,14 +5,11 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="musicXpansion is a streaming platform that curates playlists based on your favorite artist, while also providing real-time information on upcoming concerts.">
+  <meta name="description"
+    content="musicXpansion is a streaming platform that curates playlists based on your favorite artist, while also providing real-time information on upcoming concerts.">
   <meta name="author" content="">
 
   <title>muzicXpansion | where you can listen to your favorite artist through streaming and in concert</title>
-
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 
   <!-- Bootstrap core CSS -->
   <link href="asset/css/bootstrap.min.css" rel="stylesheet">
@@ -20,14 +17,15 @@
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="asset/css/grayscale.min.css" rel="stylesheet">
-  
 
-   <!-- CSS -->
-   <link src="asset/css/style.css">
+  <!-- CSS -->
+  <link src="asset/css/style.css">
 
 </head>
 
@@ -85,118 +83,166 @@
           <p class="text-white-50">Instructions on How to Use musicXpansion.</p>
           <a href="signup.html" class="btn btn-primary js-scroll-trigger">Sign Up for Free</a>
 
+
         </div>
+        <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
       </div>
-      <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
-    </div>
-  </section>
-  
-   <!-- SEARCH BAR -->
-   
-   <a name="search">
+    </section>
+
+    <!-- SEARCH BAR -->
+    <a name="search">
       <div id="youtube search" style="padding:40px">
         <h3>Start Your Search</h3>
-          <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;" id="search-input"><br/>
-          <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
-          <button type="button" id="rec" class="btn btn-primary">Recommended</button>
-          <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/>
-          <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/>
-        </a> 
-<!--CARD FOR HOLDING EVENT LISTS  -->
-<div class="row">
-  <div class="col-sm-12">
-    <br>
+        <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
+          id="search-input"><br />
+        <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
 
-    <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
-    <div class="card">
+        <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+        <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+    </a>
+    <!--CARD FOR HOLDING EVENT LISTS  -->
+    <div class="row">
+      <div class="col-sm-6">
+        <br>
 
-      <!-- card Heading for the retrieved events box -->
-      <div class="card-header">
-        <strong>
-          <i class="fa fa-table"></i>Events</strong>
-      </div>
+        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
+        <div class="card">
 
-      <!-- This main card will hold each of the resulting articles -->
-      <div class="card-body" id="event-section">
-      </div>
-    </div>
-  </div>
-</div>
-<button id="prev-btn" disabled="true">Previous</button>
-<button id="next-btn" disabled="true">Next</button>
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Events</strong>
+          </div>
 
-
-</div>
-
-<!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
-<div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Oops!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-message">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Contact Section -->
-<section class="contact-section bg-black">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-6 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Location</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">Los Angeles</div>
-            </div>
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="event-section">
           </div>
         </div>
+      </div>
+      <div class="col-sm-6">
+        <br>
 
-        <div class="col-md-6 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Learn More</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">
-                <a href="#">Frequently Asked Questions</a>
+        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Video Search</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="video">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="prev-btn" disabled="true">Previous</button>
+    <button id="next-btn" disabled="true">Next</button>
+    <button type="button" id="rec" class="btn btn-primary">Recommended</button>
+    </div>
+
+    <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Recommended Viedos</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="video2">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
+    <div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Oops!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-message">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section bg-black">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Location</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">Los Angeles</div>
               </div>
             </div>
           </div>
+
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-envelope text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Contact Us</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">
+                  <a href="#">support@muzicXpansion.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
         </div>
+    </section>
 
-        
+    <!-- FOOTER -->
+    <footer class="bg-black small text-center text-white-50">
+      <div class="container">
+        Copyright &copy; muzicXpansion
+      </div>
+    </footer>
 
-    </div>
-  </section>
+    <!-- Bootstrap and JQuery (full)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 
-  <!-- FOOTER -->
-  <footer class="bg-black small text-center text-white-50">
-    <div class="container">
-      Copyright &copy; muzicXpansion
-    </div>
-  </footer>
 
-   <!-- Bootstrap and JQuery (full)-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-     crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-     crossorigin="anonymous"></script>
+    <!-- Firebase -->
+    <!-- BOOTSTRAP AND JQUERY (full)-->
+    <script src="asset/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
 
 
   <!-- Firebase -->
@@ -209,31 +255,28 @@
   
    <!-- FIREBASE -->
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-<<<<<<< HEAD
-=======
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
->>>>>>> master
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="asset/jquery/jquery.min.js"></script>
-  <script src="asset/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="asset/js/grayscale.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="asset/jquery/jquery.min.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
 
-  <!-- MOMENTJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- JAVASCRIPT -->
-  <script src="asset/js/script.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="asset/js/grayscale.min.js"></script>
 
-</body>
+    <!-- MOMENTJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="asset/js/script.js"></script>
+
+  </body>
 
 </html>
