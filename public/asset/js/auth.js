@@ -19,8 +19,6 @@ firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
 
 // CREATE MODAL ALERT IF PASSWORD DOESN'T MEET SPECIFICATIONS
 
-// SHOW CONFIRMATION DIV
-
 // PROMPT MODAL ERRORS
 
 // ===============
@@ -44,18 +42,21 @@ loginForm.addEventListener('submit', (event) => {
     loginForm.reset();
     })
 
+    // REVEAL USER CONTENT
+
 })
 
 // ===============
-// LOG OUT FEATURE
+// LOG OUT LOGIC
 // ===============
-// var logout = document.querySelector('#logout');
-// logout.addEventListener('click', (event) => {
-//     event.preventDefault;
-//     auth.signOut().then(()=> {
-//         console.log('User signed out');
-//     })
-// })
+var logout = document.querySelector('#logout');
+logout.addEventListener('click', (event) => {
+    event.preventDefault;
+    auth.signOut().then(()=> {
+        console.log('User signed out');
+    })
+})
 
+// HIDE CONTENT FROM USER
 
 });
