@@ -2722,6 +2722,7 @@ textarea.form-control.is-invalid {
 .btn.disabled,
 .btn:disabled {
     opacity: .65
+    
 }
 
 a.btn.disabled,

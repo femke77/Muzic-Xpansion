@@ -29,15 +29,15 @@
 
 </head>
 
-<body>
- 
 <body id="page-top">
 
- <!-- NAVIGATION -->
- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="index.html">muzicXpansion</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -50,18 +50,20 @@
             <a class="nav-link js-scroll-trigger" href="about.html">About</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#login-modal">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign Up</a>
-              </li>
+            <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#login-modal">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign
+              Up</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-<!-- LOGIN MODAL -->
-<div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <!-- LOGIN MODAL -->
+  <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -71,17 +73,17 @@
           </button>
         </div>
         <div class="modal-body" id="register">
-            <form id="registrationForm">
-              <div class="form-group">
-                <label for="EmailAddress">Email Address</label>
-                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
-                  placeholder="youremail@domain.com" required>
-              </div>
-              <div class="form-group">
-                <label for="Password" id="newPassword">Create Password</label>
-                <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
-              </div>
-            </form>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="EmailAddress">Email Address</label>
+              <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
+                placeholder="youremail@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label for="Password" id="newPassword">Create Password</label>
+              <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-dark" id="newUser">Login</button>
@@ -90,17 +92,18 @@
     </div>
   </div>
 
-<!-- REGISTRATION MODAL -->
-<div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="register">
+  <!-- REGISTRATION MODAL -->
+  <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="register">
           <form id="registrationForm">
             <div class="form-group">
               <label for="EmailAddress">Email Address</label>
@@ -115,13 +118,13 @@
                 punctuation.</small>
             </div>
           </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- HEADER -->
   <header class="masthead">
@@ -141,162 +144,163 @@
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">How to Get Started</h2>
           <p class="text-white-50">Instructions on How to Use musicXpansion.</p>
-          <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal" style="width:50%; color:#fff; display: block; margin: 0 auto;">Sign Up for Free</a>
+          <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal"
+            style="width:50%; color:#fff; display: block; margin: 0 auto;">Sign Up for Free</a>
 
         </div>
         <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
       </div>
-    </section>
+  </section>
 
-    <!-- SEARCH BAR -->
-    <a name="search">
-      <div id="youtube search" style="padding:40px">
-        <h3>Start Your Search</h3>
-        <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
-          id="search-input"><br />
-        <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
+  <!-- SEARCH BAR -->
+  <a name="search">
+    <div id="youtube search" style="padding:40px">
+      <h3>Start Your Search</h3>
+      <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
+        id="search-input"><br />
+      <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
 
-        <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-        <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-    </a>
-    <!--CARD FOR HOLDING EVENT LISTS  -->
-    <div class="row">
-      <div class="col-sm-6">
-        <br>
+      <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+      <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+  </a>
+  <!--CARD FOR HOLDING EVENT LISTS  -->
+  <div class="row">
+    <div class="col-sm-6">
+      <br>
 
-        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
-        <div class="card">
+      <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
+      <div class="card">
 
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Events</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="event-section">
-          </div>
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Events</strong>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <br>
 
-        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-        <div class="card">
-
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Video Search</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="video">
-          </div>
+        <!-- This main card will hold each of the resulting articles -->
+        <div class="card-body" id="event-section">
         </div>
       </div>
     </div>
-    <button id="prev-btn" disabled="true" class="btn btn-primary">Previous</button>
-    <button id="next-btn" disabled="true" class="btn btn-primary">Next</button>
-    <button type="button" id="rec" class="btn btn-primary">Recommended</button>
-    </div>
+    <div class="col-sm-6">
+      <br>
 
-    <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
-    <div class="row">
-      <div class="col-sm-12">
-        <br>
+      <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+      <div class="card">
 
-        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-        <div class="card">
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Video Search</strong>
+        </div>
 
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Recommended Videos</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="video2">
-          </div>
+        <!-- This main card will hold each of the resulting articles -->
+        <div class="card-body" id="video">
         </div>
       </div>
-
     </div>
+  </div>
+  <button id="prev-btn" disabled="true" class="btn btn-primary">Previous</button>
+  <button id="next-btn" disabled="true" class="btn btn-primary">Next</button>
+  <button type="button" id="rec" class="btn btn-primary">Recommended</button>
+  </div>
 
-    <!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
-    <div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Oops!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" id="modal-message">
+  <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
+  <div class="row">
+    <div class="col-sm-12">
+      <br>
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+      <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+      <div class="card">
+
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Recommended Videos</strong>
+        </div>
+
+        <!-- This main card will hold each of the resulting articles -->
+        <div class="card-body" id="video2">
         </div>
       </div>
     </div>
 
-    <!-- Contact Section -->
-    <section class="contact-section bg-black">
-      <div class="container">
+  </div>
 
-        <div class="row justify-content-center">
+  <!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
+  <div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Oops!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-message">
 
-          <div class="col-md-6 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                <h4 class="text-uppercase m-0">BASED IN</h4>
-                <hr class="my-4">
-                <div class="small text-black-50">Los Angeles</div>
-              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section bg-black">
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">BASED IN</h4>
+              <hr class="my-4">
+              <div class="small text-black-50">Los Angeles</div>
             </div>
           </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-black small text-center text-white-50">
-      <div class="container">
-        Copyright &copy; muzicXpansion
       </div>
-    </footer>
+  </section>
 
-    <!-- Bootstrap and JQuery (full)-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+  <!-- FOOTER -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Copyright &copy; muzicXpansion
+    </div>
+  </footer>
 
-
-    <!-- Firebase -->
-    <!-- BOOTSTRAP AND JQUERY (full)-->
-    <script src="asset/jquery/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="asset/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap and JQuery (full)-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
 
   <!-- Firebase -->
-   <!-- BOOTSTRAP AND JQUERY (full)-->
-   <script src="asset/jquery/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-     crossorigin="anonymous"></script>
-   <script src="asset/js/bootstrap.bundle.min.js"></script>
-  
-   <!-- FIREBASE -->
+  <!-- BOOTSTRAP AND JQUERY (full)-->
+  <script src="asset/jquery/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="asset/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Firebase -->
+  <!-- BOOTSTRAP AND JQUERY (full)-->
+  <script src="asset/jquery/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="asset/js/bootstrap.bundle.min.js"></script>
+
+  <!-- FIREBASE -->
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
@@ -304,23 +308,23 @@
 
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="asset/jquery/jquery.min.js"></script>
-    <script src="asset/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="asset/jquery/jquery.min.js"></script>
+  <script src="asset/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="asset/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="asset/js/grayscale.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="asset/js/grayscale.min.js"></script>
 
-    <!-- MOMENTJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- MOMENTJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <!-- JAVASCRIPT -->
-    <script src="asset/js/auth.js"></script>
-    <script src="asset/js/script.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="asset/js/auth.js"></script>
+  <script src="asset/js/script.js"></script>
 
-  </body>
+</body>
 
 </html>

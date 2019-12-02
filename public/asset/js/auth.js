@@ -27,21 +27,24 @@ firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
 // LOG-IN FEATURE
 // ===============
 
-// var loginForm = document.querySelector('login');
-// loginForm.addEventListener('submit', (event) => {
-//     event.preventDefault();
+var loginForm = document.querySelector('#loginForm');
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-//     // GRAB USER INFO
-//     var email = loginForm['email'].value;
-//     var password = loginForm['password'].value;
+    // GRAB USER INFO
+    var email = loginForm['loginEmail'].value;
+    var password = loginForm['loginPassword'].value;
 
-//     auth.signInWithEmailandPassword(email, password).then(cred => {
-//         console.log(cred.user)
-//         // Take user to the main page
-        
-//     })
+    auth.signInWithEmailandPassword(email, password).then(cred => {
+        console.log(cred.user)
 
-// })
+    // CLOSE LOGIN MODAL AND RESET FORM
+    var modal = document.querySelector('#login-modal');
+    modal.getInstance(modal).close();
+    loginForm.reset();
+    })
+
+})
 
 // ===============
 // LOG OUT FEATURE

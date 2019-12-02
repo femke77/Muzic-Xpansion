@@ -47,18 +47,20 @@
             <a class="nav-link js-scroll-trigger" href="about.html">About</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#login-modal">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign Up</a>
-              </li>
+            <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#login-modal">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign
+              Up</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-<!-- LOGIN MODAL -->
-<div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <!-- LOGIN MODAL -->
+  <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -67,18 +69,18 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body" id="register">
-            <form id="registrationForm">
-              <div class="form-group">
-                <label for="EmailAddress">Email Address</label>
-                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
-                  placeholder="youremail@domain.com" required>
-              </div>
-              <div class="form-group">
-                <label for="Password" id="newPassword">Create Password</label>
-                <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
-              </div>
-            </form>
+        <div class="modal-body" id="login">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="EmailAddress">Email Address</label>
+              <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                placeholder="youremail@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label for="Password" id="loginPassword">Password</label>
+              <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-dark" id="newUser">Login</button>
@@ -88,41 +90,43 @@
   </div>
 
 
-<!-- REGISTRATION MODAL -->
-<a name="register-modal">
-<div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="register">
-          <form id="registrationForm">
-            <div class="form-group">
-              <label for="EmailAddress">Email Address</label>
-              <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
-                placeholder="youremail@domain.com" required>
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="Password" id="newPassword">Create Password</label>
-              <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
-              <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and
-                punctuation.</small>
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+  <!-- REGISTRATION MODAL -->
+  <a name="register-modal">
+    <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="register">
+            <form id="registrationForm">
+              <div class="form-group">
+                <label for="EmailAddress">Email Address</label>
+                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
+                  placeholder="youremail@domain.com" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+              <div class="form-group">
+                <label for="Password" id="newPassword">Create Password</label>
+                <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+                <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and
+                  punctuation.</small>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-</a>
+    </div>
+  </a>
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-dark">
     <div class="container">
@@ -139,7 +143,9 @@
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">muzicXpansion</h4>
-                <p class="mb-0 text-white-50">muzicXpansion is a simple app built to enjoy music video streaming and live experiences. Our goal is to help you build curiosity, explore new sounds, and experience the magic of live.</p>
+                <p class="mb-0 text-white-50">muzicXpansion is a simple app built to enjoy music video streaming and
+                  live experiences. Our goal is to help you build curiosity, explore new sounds, and experience the
+                  magic of live.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -157,7 +163,10 @@
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Free & Simple.</h4>
-                <p class="mb-0 text-white-50">This application is completely free. All you need to do is sign up below. </p><p style="margin: 30px 0 0 0;"><a data-toggle="modal" data-target="#register-modal" class="btn btn-primary">Register Now</a></p>
+                <p class="mb-0 text-white-50">This application is completely free. All you need to do is sign up below.
+                </p>
+                <p style="margin: 30px 0 0 0;"><a data-toggle="modal" data-target="#register-modal"
+                    class="btn btn-primary">Register Now</a></p>
 
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
