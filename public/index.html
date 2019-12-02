@@ -56,6 +56,9 @@
             <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign
               Up</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" data-toggle="modal" id="logout">Log Out</a>
+            </li>
         </ul>
       </div>
     </div>
@@ -153,10 +156,11 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
   </section>
 
   <!-- SEARCH BAR -->
+  <div class="container">
   <a name="search">
     <div id="youtube search" style="padding:40px">
       <h3>Start Your Search</h3>
-      <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
+      <input class="form-control" type="text" placeholder="Type in an Artist or Band" style="width: 400px;"
         id="search-input"><br />
       <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
 
@@ -206,6 +210,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
   </div>
 
   <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
+ 
   <div class="row">
     <div class="col-sm-12">
       <br>
@@ -226,6 +231,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
 
   </div>
+</div><!-- THIS ENDS THE CONTAINER -->
 
   <!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
   <div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
