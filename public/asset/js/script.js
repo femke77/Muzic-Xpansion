@@ -79,6 +79,7 @@ function ytSearch() {
         console.log(response);
         var results = response.items;
         $("#video").empty();
+        $("#video2").empty();
         for (var i = 0; i < results.length; i++) {
             videoId = results[i].id.videoId;
             console.log(videoId)
@@ -213,7 +214,6 @@ $("#rec").on("click", function (event) {
             var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
             var parTitle = results[i].snippet.title;
-
             var $eventList = $("<ul>");
             $eventList.addClass("list-group");
             $("#video2").append($eventList);
@@ -229,4 +229,4 @@ $("#rec").on("click", function (event) {
 
 });
 
-// ADD FUNCTION TO MODAL IF EXCUTED IF PERFORMER NOT FOUND, DO NOT EXCIQUTE YOUTUBE SEACH!
+
