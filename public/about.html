@@ -11,17 +11,17 @@
 
   <title>muzicXpansion | where you can listen to your favorite artist through streaming and in concert</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- CORE BOOTSTRAP CSS -->
   <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+  <link href="asset/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- CUSTOM FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- CUSTOMIZED TEMPLATE -->
   <link href="asset/css/grayscale.min.css" rel="stylesheet">
 
 </head>
@@ -50,16 +50,82 @@
             <a class="nav-link js-scroll-trigger" href="about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="login.html">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger btn-primary" href="signup.html">Sign Up</a>
-          </li>
+              <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#login-modal">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger btn-primary" data-toggle="modal" data-target="#register-modal">Sign Up</a>
+              </li>
         </ul>
       </div>
     </div>
   </nav>
 
+<!-- LOGIN MODAL -->
+<div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Welcome Back.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="register">
+            <form id="registrationForm">
+              <div class="form-group">
+                <label for="EmailAddress">Email Address</label>
+                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
+                  placeholder="youremail@domain.com" required>
+              </div>
+              <div class="form-group">
+                <label for="Password" id="newPassword">Create Password</label>
+                <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-dark" id="newUser">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- REGISTRATION MODAL -->
+<a name="register-modal">
+<div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="register">
+          <form id="registrationForm">
+            <div class="form-group">
+              <label for="EmailAddress">Email Address</label>
+              <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
+                placeholder="youremail@domain.com" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="Password" id="newPassword">Create Password</label>
+              <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+              <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and
+                punctuation.</small>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</a>
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-dark">
     <div class="container">
@@ -69,15 +135,14 @@
       <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-01.jpg" alt="">
+          <img class="img-fluid" src="asset/img/about-02.jpg" alt="About muzicXpansion">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Misty</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
-                  along with a description.</p>
+                <h4 class="text-white">muzicXpansion</h4>
+                <p class="mb-0 text-white-50">muzicXpansion is a simple app built to enjoy music video streaming and live experiences. Our goal is to help you build curiosity, explore new sounds, and experience the magic of live.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -85,18 +150,17 @@
         </div>
       </div>
 
-      <!-- Project Two Row -->
+      <!-- ABOUT: ROW 2 -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-02.jpg" alt="">
+          <img class="img-fluid" src="asset/img/about-01.jpg" alt="muzicXpansion is free and simple.">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
-                <h4 class="text-white">Mountains</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These
-                  sections work well responsively as well, try this theme on a small screen!</p>
+                <h4 class="text-white">Free & Simple.</h4>
+                <p class="mb-0 text-white-50">This application is completely free. All you need to do is <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#staticBackdrop">Register for an Account</a></p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -112,32 +176,18 @@
   <section class="contact-section bg-black">
     <div class="container">
 
-      <div class="row">
+      <div class="row justify-content-center">
 
-        <div class="col-md-6 mb-3 mb-md-0">
+        <div class="col-md-6 mb-3 mb-md-0 ">
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Location</h4>
+              <h4 class="text-uppercase m-0">HEADQUARTERS</h4>
               <hr class="my-4">
               <div class="small text-black-50">Los Angeles</div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Learn More</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">
-                <a href="#">Frequently Asked Questions</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
 
 
       </div>
@@ -161,7 +211,7 @@
   <script src="asset/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="asset/js/jquery-easing/jquery.easing.min.js"></script>
+  <script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="asset/js/grayscale.min.js"></script>
