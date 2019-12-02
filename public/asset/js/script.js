@@ -62,8 +62,24 @@ $("#ytSubmit").on("click", function (event) {
             // LOOK INTO DOT DOT DOT LINK FOR DISCRIPTION!!!!
             // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
             $eventListItem.append("<h6>" + " Published : " + results[i].snippet.publishedAt + "</h6>");
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 
 
+<<<<<<< HEAD
+            // if (response.performers.length === 0) {
+            //     $("#modal-message").text("Performer not found. Please check spelling and try again.");
+            //     $("#oops-modal").modal("show");
+            // }else{
+            //     $("#video").append("No upcoming events for this performer.")
+            // }
+
+        };
+        checkForEvents();
+
+=======
             $eventList.append($eventListItem);
 
             // if (response.performers.length === 0) {
@@ -76,6 +92,7 @@ $("#ytSubmit").on("click", function (event) {
         };
         checkForEvents();
 
+>>>>>>> master
     });
 });
     /**
