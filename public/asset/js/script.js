@@ -24,6 +24,9 @@ var page = 1;
 var limit = 10;
 var numPages;
 
+
+$("#prev-btn").hide();
+$("#next-btn").hide();
 /**
  * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
  * and find out if performer exists and has event coming up. Sorting is by date/time.
@@ -132,6 +135,8 @@ function getEvents() {
             console.log(response);
 
             var results = response.events;
+            $("#prev-btn").show();
+            $("#next-btn").show();
             for (let i = 0; i < results.length; i++) {
                 var $eventList = $("<ul>");
                 $eventList.addClass("list-group");
