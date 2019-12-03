@@ -157,6 +157,18 @@
     border: 0
 }
 
+.btn:disabled {
+    box-shadow: 0 .1875rem .1875rem 0 rgba(0, 0, 0, .1) !important;
+    padding: 1.25rem 2rem;
+    font-family: 'Varela Round';
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    border: 0;
+    background-color: #5c4d28;
+}
+
+
 .btn-primary {
     background-color: #b18310
 }

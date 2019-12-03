@@ -137,7 +137,6 @@ function getEvents() {
             console.log(response);
 
             var results = response.events;
-            
             for (let i = 0; i < results.length; i++) {
                 var $eventList = $("<ul>");
                 $eventList.addClass("list-group");
