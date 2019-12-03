@@ -137,8 +137,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Stream. Discover. Go.</h2>
         <a href="#about" class="btn btn-primary js-scroll-trigger">&#9660;</a>
       </div>
-    </div>
-  </header>
+    </header>
 
   <!-- GETTING STARTED -->
   <section id="about" class="about-section text-center">
@@ -151,64 +150,64 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             style="width:50%; color:#fff; display: block; margin: 0 auto;">Sign Up for Free</a>
 
 
+          </div>
+          <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
         </div>
-        <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
+    </section>
+
+    <!-- SEARCH BAR -->
+    <a name="search">
+      <div id="youtube search" style="padding:40px">
+        <h3>Start Your Search</h3>
+        <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
+          id="search-input"><br />
+        <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
+
+        <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+        <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+    </a>
+    <!--CARD FOR HOLDING EVENT LISTS  -->
+    <div class="row">
+      <div class="col-sm-6">
+        <br>
+        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Video Search</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="video">
+          </div>
+        </div>
+        <button type="button" id="rec" class="btn btn-primary">Recommended</button>
       </div>
-  </section>
 
-  <!-- SEARCH BAR -->
-  <div class="container">
-  <a name="search">
-    <div id="youtube search" style="padding:40px">
-      <h3>Start Your Search</h3>
-      <input class="form-control" type="text" placeholder="Type in an Artist or Band" style="width: 400px;"
-        id="search-input"><br />
-      <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
+      <div class="col-sm-6">
+        <br>
 
-      <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-      <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-  </a>
-  <!--CARD FOR HOLDING EVENT LISTS  -->
-  <div class="row">
-    <div class="col-sm-6">
-      <br>
+        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
+        <div class="card">
 
-      <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
-      <div class="card">
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Events</strong>
+          </div>
 
-        <!-- card Heading for the retrieved events box -->
-        <div class="card-header">
-          <strong>
-            <i class="fa fa-table"></i>Events</strong>
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="event-section">
+          </div>
         </div>
+        <button id="prev-btn" disabled="true">Previous</button>
+        <button id="next-btn" disabled="true">Next</button>
 
-        <!-- This main card will hold each of the resulting articles -->
-        <div class="card-body" id="event-section">
-        </div>
       </div>
     </div>
-    <div class="col-sm-6">
-      <br>
-
-      <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-      <div class="card">
-
-        <!-- card Heading for the retrieved events box -->
-        <div class="card-header">
-          <strong>
-            <i class="fa fa-table"></i>Video Search</strong>
-        </div>
-
-        <!-- This main card will hold each of the resulting articles -->
-        <div class="card-body" id="video">
-        </div>
-      </div>
     </div>
-  </div>
-  <button id="prev-btn" disabled="true" class="btn btn-primary">Previous</button>
-  <button id="next-btn" disabled="true" class="btn btn-primary">Next</button>
-  <button type="button" id="rec" class="btn btn-primary">Recommended</button>
-  </div>
 
   <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
  
@@ -216,14 +215,14 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="col-sm-12">
       <br>
 
-      <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-      <div class="card">
+        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+        <div class="card float-left;">
 
-        <!-- card Heading for the retrieved events box -->
-        <div class="card-header">
-          <strong>
-            <i class="fa fa-table"></i>Recommended Videos</strong>
-        </div>
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Recommended Videos</strong>
+          </div>
 
         <!-- This main card will hold each of the resulting articles -->
         <div class="card-body" id="video2">
@@ -271,27 +270,16 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
           </div>
         </div>
       </div>
-  </section>
+    </footer>
 
-
-    <!-- Firebase -->
-    <!-- BOOTSTRAP AND JQUERY (full)-->
-    <script src="asset/jquery/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="asset/js/bootstrap.bundle.min.js"></script>
-
-
-  <!-- Firebase -->
-  <!-- BOOTSTRAP AND JQUERY (full)-->
-  <script src="asset/jquery/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="asset/js/bootstrap.bundle.min.js"></script>
-
-  <!-- FIREBASE -->
+   <!-- BOOTSTRAP AND JQUERY (full)-->
+   <script src="asset/jquery/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+     crossorigin="anonymous"></script>
+   <script src="asset/js/bootstrap.bundle.min.js"></script>
+  
+   <!-- FIREBASE -->
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
