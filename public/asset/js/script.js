@@ -89,6 +89,7 @@ function ytSearch() {
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
 
             var $eventList = $("<ul>");
+            $eventList.addClass("text-center");
             $eventList.addClass("list-group");
             $("#video").append($eventList);
             var $eventListItem = $("<li class='list-group-item'>");
@@ -215,6 +216,9 @@ $("#rec").on("click", function (event) {
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
             var parTitle = results[i].snippet.title;
             var $eventList = $("<ul>");
+            $eventList.addClass("float-left");
+            $eventList.css("width", "50%");
+            $eventList.addClass("text-center");
             $eventList.addClass("list-group");
             $("#video2").append($eventList);
             var $eventListItem = $("<li class='list-group-item'>");

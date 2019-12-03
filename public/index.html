@@ -30,63 +30,65 @@
 </head>
 
 <body>
- 
-<body id="page-top">
 
- <!-- Navigation -->
- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html">muzicXpansion</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Get Started</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">muzicXpansion</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Get Started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="login.html">Log in</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger btn-primary" href="signup.html">Sign Up</a>
-              </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HEADER -->
-  <header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">muzicXpansion</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">Stream. Discover. Go.</h2>
-        <a href="#about" class="btn btn-primary js-scroll-trigger">&#9660;</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- GETTING STARTED -->
-  <section id="about" class="about-section text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">How to Get Started</h2>
-          <p class="text-white-50">Instructions on How to Use musicXpansion.</p>
-          <a href="signup.html" class="btn btn-primary js-scroll-trigger">Sign Up for Free</a>
-
-
+              <a class="nav-link js-scroll-trigger btn-primary" href="signup.html">Sign Up</a>
+            </li>
+          </ul>
         </div>
-        <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
       </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h1 class="mx-auto my-0 text-uppercase">muzicXpansion</h1>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">Stream. Discover. Go.</h2>
+          <a href="#about" class="btn btn-primary js-scroll-trigger">&#9660;</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- GETTING STARTED -->
+    <section id="about" class="about-section text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-white mb-4">How to Get Started</h2>
+            <p class="text-white-50">Instructions on How to Use musicXpansion.</p>
+            <a href="signup.html" class="btn btn-primary js-scroll-trigger">Sign Up for Free</a>
+
+
+          </div>
+          <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
+        </div>
     </section>
 
     <!-- SEARCH BAR -->
@@ -104,24 +106,6 @@
     <div class="row">
       <div class="col-sm-6">
         <br>
-
-        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
-        <div class="card">
-
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Events</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="event-section">
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <br>
-
         <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
         <div class="card">
 
@@ -137,11 +121,28 @@
         </div>
         <button type="button" id="rec" class="btn btn-primary">Recommended</button>
       </div>
-    </div>
-    <button id="prev-btn" disabled="true">Previous</button>
-    <button id="next-btn" disabled="true">Next</button>
-    
 
+      <div class="col-sm-6">
+        <br>
+
+        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved events box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i>Events</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="event-section">
+          </div>
+        </div>
+        <button id="prev-btn" disabled="true">Previous</button>
+        <button id="next-btn" disabled="true">Next</button>
+
+      </div>
+    </div>
     </div>
 
     <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
@@ -150,12 +151,12 @@
         <br>
 
         <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-        <div class="card">
+        <div class="card float-left;">
 
           <!-- card Heading for the retrieved events box -->
           <div class="card-header">
             <strong>
-              <i class="fa fa-table"></i>Recommended Viedos</strong>
+              <i class="fa fa-table"></i>Recommended Videos</strong>
           </div>
 
           <!-- This main card will hold each of the resulting articles -->
@@ -244,25 +245,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
 
 
-  <!-- Firebase -->
-   <!-- BOOTSTRAP AND JQUERY (full)-->
-   <script src="asset/jquery/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-     crossorigin="anonymous"></script>
-   <script src="asset/js/bootstrap.bundle.min.js"></script>
-  
-   <!-- FIREBASE -->
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <!-- Firebase -->
+    <!-- BOOTSTRAP AND JQUERY (full)-->
+    <script src="asset/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 
 
 
