@@ -1,62 +1,52 @@
 // ===============
 // REGISTRATION FEATURE
 // ===============
-
-var registrationForm = document.querySelector('#registrationForm');
-registrationForm.addEventListener('submit', (event) => {
-event.preventDefault();
-
-// USER INPUT
-var email = registrationForm['registrationEmail'].value;
-var password = registrationForm['createPassword'].value;
-
-// CREATE NEW USER
-firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
-    console.log(cred);
-})
-
-// CREATE MODAL ALERT IF USER EXISTS
-
-// CREATE MODAL ALERT IF PASSWORD DOESN'T MEET SPECIFICATIONS
-
-// PROMPT MODAL ERRORS
-
-// ===============
-// LOG-IN FEATURE
-// ===============
-
-var loginForm = document.querySelector('#loginForm');
-loginForm.addEventListener('submit', (event) => {
+$("#newUser").on("click", function(event){
     event.preventDefault();
+    console.log("triggered")
+    var email = $("#registrationEmail").val();
+    var pass = $("#createPassword").val();
+    firebase.auth().createUserWithEmailAndPassword(email, pass).then(cred => {
+        console.log(cred);
+    });
+    $("#register-modal").hide();
+    $(".modal-backdrop").remove();
+    $("form").trigger("reset");
+})
 
-    // GRAB USER INFO
-    var email = loginForm['loginEmail'].value;
-    var password = loginForm['loginPassword'].value;
-
-    auth.signInWithEmailandPassword(email, password).then(cred => {
+//LOGIN
+$("#user").on("click", function(event){
+    event.preventDefault();
+    var email = $("#loginEmail").val();
+    var password = $("#userPassword").val();
+    console.log(email + " " + password);
+    firebase.auth().signInWithEmailAndPassword(email, password).then(cred => {
         console.log(cred.user)
-
-    // CLOSE LOGIN MODAL AND RESET FORM
-    var modal = document.querySelector('#login-modal');
-    modal.getInstance(modal).close();
-    loginForm.reset();
-    })
-
-    // REVEAL USER CONTENT
-
-})
-
-// ===============
-// LOG OUT LOGIC
-// ===============
-var logout = document.querySelector('#logout');
-logout.addEventListener('click', (event) => {
-    event.preventDefault;
-    auth.signOut().then(()=> {
-        console.log('User signed out');
-    })
-})
-
-// HIDE CONTENT FROM USER
-
+       
+        // CLOSE LOGIN MODAL AND RESET FORM
+        $("#login-modal").hide();
+        $(".modal-backdrop").remove();
+        $("form").trigger("reset");
+       
+       
+    });
 });
+
+//LOGOUT
+$("#logout").on("click", function(event){
+    event.preventDefault();
+    firebase.auth().signOut().then(function(){
+              console.log("user signed out")
+    });
+})
+
+
+//what i did to fix code: 
+// translated to jquery,
+// place where auth. was being called should be firebase.auth() 
+// typo in signInWithUserNameAndPassword (the a was lowercase)
+// all id's in login and register were made unique (had to for jquery)
+// modal dismiss function was unrecognized, switched to hide()
+// reset by trigger
+
+
