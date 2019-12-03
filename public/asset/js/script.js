@@ -11,7 +11,6 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 var database = firebase.database();
 var input = $(".form-control");
