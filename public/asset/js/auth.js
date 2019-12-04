@@ -1,7 +1,5 @@
-
 $("#alert-reg").hide();
 $("#alert-login").hide();
-
 
 // ===============
 // REGISTRATION FEATURE
@@ -29,11 +27,17 @@ $("#newUser").on("click", function (event) {
             if (errorCode === "auth/invalid-email" || errorCode === "auth/weak-password") {
                 $("#alert-reg-msg").html("Please input a valid email and a password of at least 6 characters.")
                 $("#alert-reg").show();
-                $(".close").click(function () {
-                    $("#alert-reg").hide();
-
-                });
+             
             }
+            if (errorCode === "auth/email-already-in-use"){
+                $("#alert-reg-msg").html("This email is already associated with an account. Please login.")
+                $("#alert-reg").show();
+            }
+            
+            $(".close").click(function () {
+                $("#alert-reg").hide();
+
+            });
         });
 });
 
@@ -75,6 +79,13 @@ $("#user").on("click", function (event) {
             $("#alert-login").show();
 
         }
+        if (errorCode === "auth/too-many-requests"){
+
+            $("#alert-login-msg").html("Too many requests. Please try again later.")
+            $("#alert-login").show();
+        }
+
+
         $(".close").click(function () {
             $("#alert-login").hide();
 
