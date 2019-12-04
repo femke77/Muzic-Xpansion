@@ -25,7 +25,7 @@
   <link href="asset/css/grayscale.min.css" rel="stylesheet">
 
   <!-- CSS -->
-  <link href="asset/css/style.css">
+  <link href="asset/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -91,6 +91,12 @@
           </form>
         </div>
         <div class="modal-footer modal-alert-login">
+            <div class="alert alert-danger" id="alert-login" role="alert">
+                <p id="alert-login-msg"></p>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
           <button type="submit" class="btn btn-dark" id="user">Login</button>
         </div>
       </div>
@@ -126,6 +132,12 @@
           </form>
         </div>
         <div class="modal-footer modal-alert">
+            <div class="alert alert-danger" id="alert-reg" role="alert">
+              <p id="alert-reg-msg"></p>
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
           <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
         </div>
       </div>
@@ -146,6 +158,8 @@
       </div>
     </div>
   </div>
+
+
 
   <!-- HEADER -->
   <header class="masthead">
