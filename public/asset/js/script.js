@@ -25,7 +25,8 @@ var limit = 10;
 var numPages;
 
 
-
+$("#prev-btn").hide();
+$("#next-btn").hide();
 /**
  * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
  * and find out if performer exists and has event coming up. Sorting is by date/time.
@@ -37,36 +38,43 @@ $("#ytSubmit").on("click", function (event) {
     console.log("submit btn on click");
     $("#event-section").empty();
     input = $("#search-input").val().trim();
-    input = input.split(' ').join('-');
-    var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
-        "&client_id=" + seatGeekKey;
+    if (input === ""){
+        $("#modal-message").text("Please enter an artist or band name in the search bar.");
+        $("#oops-modal").modal("show");
+    } else {
+        input = input.split(' ').join('-');
+        var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
+            "&client_id=" + seatGeekKey;
 
-    $.ajax({
-        url: queryURLPerformers,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response)
-            if (response.performers.length === 0) {
-                $("#modal-message").text("Performer not found. Please check spelling and try again.");
-                $("#oops-modal").modal("show");
-            } else {
-                var hasEvent = response.performers[0].has_upcoming_events;
-                imageURL = response.performers[0].image;
-                if (hasEvent === true) {
-                    numEvents = response.performers[0].num_upcoming_events;
-                    numPages = Math.ceil(numEvents / limit);
-                    getEvents();
-                    if (numEvents > limit){
-                        $("#next-btn").prop("disabled", false);
-                    } 
-                    
+        $.ajax({
+            url: queryURLPerformers,
+            method: "GET"
+        })
+            .then(function (response) {
+                console.log(response)
+                if (response.performers.length === 0) {
+                    $("#modal-message").text("Performer not found. Please check spelling and try again.");
+                    $("#oops-modal").modal("show");
                 } else {
-                    $("#event-section").append("No upcoming events for this performer.")
+                    var hasEvent = response.performers[0].has_upcoming_events;
+                    imageURL = response.performers[0].image;
+                    if (hasEvent === true) {
+                        numEvents = response.performers[0].num_upcoming_events;
+                        numPages = Math.ceil(numEvents / limit);
+                        getEvents();
+
+                        if (numEvents > limit) {
+                            $("#next-btn").prop("disabled", false);
+                        }
+
+                    } else {
+                        $("#event-section").append("No upcoming events for this performer.")
+                    }
+                    ytSearch();
                 }
-                ytSearch();
-            }
-        });
+            });
+    }
+   
 });
 
 // HIDING THE RECOMMENDED BUTTON FROM THE USER.
@@ -135,7 +143,8 @@ function getEvents() {
     })
         .then(function (response) {
             console.log(response);
-
+            $("#prev-btn").show();
+            $("#next-btn").show();
             var results = response.events;
             for (let i = 0; i < results.length; i++) {
                 var $eventList = $("<ul>");
@@ -156,6 +165,7 @@ function getEvents() {
                 $eventListItem.append("Location: " + results[i].venue.display_location + "<br/>");
                 var $ticketBtn = $("<button>", {
                     text: "Buy Tickets",
+                    class: "btn btn-primary",
                     click: function () {
                         window.open(results[i].url);
                     }
@@ -163,8 +173,11 @@ function getEvents() {
                 $eventListItem.append($ticketBtn);
 
                 $eventList.append($eventListItem);
+                
             }
-        })
+            $(".main")[0].scrollIntoView();
+        });
+       
 }
 
 

@@ -3,7 +3,7 @@
 // ===============
 $("#newUser").on("click", function(event){
     event.preventDefault();
-    console.log("triggered")
+    console.log("new user created");
     var email = $("#registrationEmail").val();
     var pass = $("#createPassword").val();
     firebase.auth().createUserWithEmailAndPassword(email, pass).then(cred => {
