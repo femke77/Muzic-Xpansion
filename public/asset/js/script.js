@@ -3,10 +3,11 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+var database = firebase.database();
+
 var apiKey = config.YT_API_KEY;
 var seatGeekKey = config.SG_API_KEY;
-var database = firebase.database();
-var input = $(".form-control");
+
 var videoId;
 var input;
 var imageURL;
@@ -18,11 +19,11 @@ var numPages;
 
 $("#prev-btn").hide();
 $("#next-btn").hide();
+
 /**
  * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
  * and find out if performer exists and has event coming up. Sorting is by date/time.
  */
-// ytSearch FUNCTION IS NOW CALLED ON THE THIS SUBMIT BUTTON IS CLICKED AND THIS FUCNTION IS EXICUTED TO SEE IF THERE IS AN ELIGIBLE ARTIST. 
 $("#ytSubmit").on("click", function (event) {
 
     event.preventDefault();
@@ -72,7 +73,8 @@ $("#ytSubmit").on("click", function (event) {
 
 // HIDING THE RECOMMENDED BUTTON FROM THE USER.
 $("#rec").hide();
-// THIS FUCTION WILL EXECUTE AT SEARCH ON YOUTUBE ONCE AN ARTIST ENTERED IN TO THE SEARCH BAR AND THE SUBMITT BUTTON IS CLICKED. 
+
+// THIS FUNCTION WILL EXECUTE A SEARCH ON YOUTUBE ONCE AN ARTIST ENTERED IN TO THE SEARCH BAR AND THE SUBMIT BUTTON IS CLICKED. 
 function ytSearch() {
     var inputVal = $("#search-input").val().trim();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=" + apiKey;
@@ -112,14 +114,7 @@ function ytSearch() {
         };
     });
 }
-// =====================================================
-// TOO DELETE
-// function checkForEvents() {
 
-
-// }
-// TOO DELETE
-// =====================================================
 /**
  * Gets events from the Seat Geek /events endpoint using performers argument from user input box
  * MomentJS is used to convert the date time to a more readable format.
@@ -175,7 +170,7 @@ function getEvents() {
 
 
 
-//--PAGINATION METHODS--------------------------------
+//--PAGINATION METHODS FOR EVENT LISTS----------------------------
 $("#next-btn").on("click", function () {
     if (page <= numPages) {
         page++;
@@ -198,7 +193,7 @@ $("#prev-btn").on("click", function () {
     }
 });
 
-
+//------GET RECOMMENDED VIDEOS AND DISPLAY--------------------------------
 $("#rec").on("click", function (event) {
 
 
