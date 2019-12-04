@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 var input = $(".form-control");
-var apiKey = "AIzaSyAOKrkzMOzYokVptU6mz_hDA27OyD4fueg";
+var apiKey = "AIzaSyC1aQT_ubRT9xsTsbqwdv46d9VRFYx1mS4";
 var videoId;
 var seatGeekKey = "MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ";
 var input;
@@ -35,6 +35,8 @@ $("#next-btn").hide();
 $("#ytSubmit").on("click", function (event) {
 
     event.preventDefault();
+    $("#next-btn").prop("disabled", true);
+    $("#prev-btn").prop("disabled", true);
     console.log("submit btn on click");
     $("#event-section").empty();
     input = $("#search-input").val().trim();
