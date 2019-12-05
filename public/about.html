@@ -57,75 +57,83 @@
       </div>
     </div>
   </nav>
+ <!-- LOGIN MODAL -->
+ <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
+ aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="staticBackdropLabel">Welcome Back!</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body" id="login">
+       <form id="loginForm">
+         <div class="form-group">
+           <label for="EmailAddress">Email Address</label>
+           <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+             placeholder="youremail@domain.com" required>
+         </div>
+         <div class="form-group">
+           <label for="Password" id="loginPassword">Password</label>
+           <input type="password" class="form-control" id="userPassword" placeholder="password" required>
+         </div>
+       </form>
+     </div>
+     <div class="modal-footer modal-alert-login">
+       <div class="alert alert-danger" id="alert-login" role="alert">
+         <p id="alert-login-msg"></p>
+         <button type="button" class="close" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <button type="submit" class="btn btn-dark" data-dismiss="modal" id="user">Login</button>
+     </div>
+   </div>
+ </div>
+</div>
 
-  <!-- LOGIN MODAL -->
-  <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
+  <!-- REGISTRATION MODAL -->
+  <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Welcome Back.</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body" id="login">
-          <form id="loginForm">
+
+        <div class="modal-body" id="register">
+          <form id="registrationForm">
             <div class="form-group">
               <label for="EmailAddress">Email Address</label>
-              <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+              <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
                 placeholder="youremail@domain.com" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-              <label for="Password" id="loginPassword">Password</label>
+              <label for="Password" id="newPassword">Create Password</label>
               <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+              <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and
+                punctuation.</small>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-dark" id="newUser">Login</button>
+        <div class="modal-footer modal-alert">
+          <div class="alert alert-danger" id="alert-reg" role="alert">
+            <p id="alert-reg-msg"></p>
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <button type="submit" class="btn btn-dark" data-dismiss="modal" id="newUser">Sign Up</button>
         </div>
       </div>
     </div>
   </div>
-
-
-  <!-- REGISTRATION MODAL -->
-  <a name="register-modal">
-    <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Register for an Account</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" id="register">
-            <form id="registrationForm">
-              <div class="form-group">
-                <label for="EmailAddress">Email Address</label>
-                <input type="email" class="form-control" id="registrationEmail" aria-describedby="emailHelp"
-                  placeholder="youremail@domain.com" required>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                  else.</small>
-              </div>
-              <div class="form-group">
-                <label for="Password" id="newPassword">Create Password</label>
-                <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
-                <small id="emailHelp" class="form-text text-muted">Use at least 6 alphanumeric characters and
-                  punctuation.</small>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
   </a>
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-dark">
@@ -213,6 +221,9 @@
        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
      </script>
      <script src="asset/js/bootstrap.bundle.min.js"></script>
+
+     <!-- CONFIG.JS -->
+     <script src="config.js" type="text/JavaScript"></script>
  
      <!-- FIREBASE -->
      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
@@ -234,6 +245,7 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
  
      <!-- JAVASCRIPT -->
+     <script src="asset/js/auth.js"></script>
      <script src="asset/js/script.js"></script>
  
 
