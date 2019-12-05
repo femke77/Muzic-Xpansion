@@ -4,15 +4,10 @@
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-<<<<<<< HEAD
 
 var apiKey = config.YT_API_KEY;
 var seatGeekKey = config.SG_API_KEY;
 
-=======
-var input = $(".form-control");
-var apiKey = "AIzaSyC1aQT_ubRT9xsTsbqwdv46d9VRFYx1mS4";
->>>>>>> eb399291301893136e1c397395fa59b936706e81
 var videoId;
 var input;
 var imageURL;
