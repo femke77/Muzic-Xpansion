@@ -4,10 +4,15 @@
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
+<<<<<<< HEAD
 
 var apiKey = config.YT_API_KEY;
 var seatGeekKey = config.SG_API_KEY;
 
+=======
+var input = $(".form-control");
+var apiKey = "AIzaSyC1aQT_ubRT9xsTsbqwdv46d9VRFYx1mS4";
+>>>>>>> eb399291301893136e1c397395fa59b936706e81
 var videoId;
 var input;
 var imageURL;
@@ -90,17 +95,17 @@ function ytSearch() {
         for (var i = 0; i < results.length; i++) {
             videoId = results[i].id.videoId;
             console.log(videoId)
-
-            var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
-
+            var videoFrame = $("<div class='videoFrame'>");
+            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
+            videoFrame.append(video);
 
             var $eventList = $("<ul>");
             $eventList.addClass("text-center");
             $eventList.addClass("list-group");
             $("#video").append($eventList);
             var $eventListItem = $("<li class='list-group-item'>");
-            $eventListItem.append(video);
+            $eventListItem.append(videoFrame);
             $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
             // LOOK INTO DOT DOT DOT LINK FOR DISCRIPTION!!!!
             // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
@@ -217,8 +222,11 @@ $("#rec").on("click", function (event) {
         for (var i = 0; i < results.length; i++) {
             videoId = results[i].id.videoId;
             console.log(videoId)
-            var video = $("<iframe width='300' height='200'allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
+            var videoFrame = $("<div class='videoFrame'>");
+            var video = $("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen>");
             video.attr("src", "https://www.youtube.com/embed/" + videoId);
+            videoFrame.append(video);
+
             var parTitle = results[i].snippet.title;
             var $eventList = $("<ul>");
             $eventList.addClass("float-left");
@@ -227,7 +235,7 @@ $("#rec").on("click", function (event) {
             $eventList.addClass("list-group");
             $("#video2").append($eventList);
             var $eventListItem = $("<li class='list-group-item'>");
-            $eventListItem.append(video);
+            $eventListItem.append(videoFrame);
             $eventListItem.append("<h4>" + "Title : " + results[i].snippet.title + "</h4>");
             // $eventListItem.append("<h5>" + "Description : " + results[i].snippet.description + "</h5>");
             $eventListItem.append("<h6>" + "Published : " + results[i].snippet.publishedAt + "</h6>");
