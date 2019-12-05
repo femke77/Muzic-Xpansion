@@ -10,7 +10,7 @@ This site just needs you to make a sign in and you are on your way to surfing wh
 
 [muzicXpansion](https://deploy-f0b72.firebaseapp.com)
 
-[meteor](https://e3.365dm.com/19/03/768x432/skynews-meteor-explosion-generic_4612421.jpg?20190318083957)
+![meteor](https://e3.365dm.com/19/03/768x432/skynews-meteor-explosion-generic_4612421.jpg?20190318083957)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 <!-- WHAT THIS PROJECT DOES -->
@@ -52,4 +52,4 @@ We made our first set files and folders.
 This made the management of the source code easy to handle look at. We also confingured the git repo so that all merges to the master have to be done approved by another member of the repo. This allows the merging of the code to move slightly smoother and to keep all the developers on the same page. 
 
 
-[](https://www.wildadventures.com/-/media/Images/HFE/WA_COM/Concerts/2019/Concert-desktop.jpg)
+![concert](https://www.wildadventures.com/-/media/Images/HFE/WA_COM/Concerts/2019/Concert-desktop.jpg)
