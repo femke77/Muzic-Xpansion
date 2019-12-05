@@ -1,4 +1,3 @@
-
 /* STYLING FOR REGISTRATION FORM */
 /* Style all input fields */
 /* input {
@@ -72,8 +71,4 @@
 	left: 0 !important;
 	width: 100% !important;
 	height: 100% !important;
-}
-
-.modal {
-  overflow-y: scroll;
 }
