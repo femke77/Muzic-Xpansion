@@ -10,10 +10,10 @@ This site just needs you to make a sign in and you are on your way to surfing wh
 
 [muzicXpansion](https://deploy-f0b72.firebaseapp.com)
 
-![meteor](https://e3.365dm.com/19/03/768x432/skynews-meteor-explosion-generic_4612421.jpg?20190318083957)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+![muzicXpansion](https://e3.365dm.com/19/03/768x432/skynews-meteor-explosion-generic_4612421.jpg?20190318083957)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-<!-- WHAT THIS PROJECT DOES -->
+## WHAT THIS PROJECT DOES
 
 By using the api for youtube and seatgeek we are making calls of that search the specified inputs value. "Basically searching for what the user types."
 with the magic styling of bootstrap and jquery and we are blending the two to create the experience that is muzicXpansion.
@@ -29,21 +29,22 @@ in essences
 2. Watch their most popular videos 
 3. Get a recommendation on the same artist or another similar.
 
-<!-- WHY THE PROJECT IS USEFUL-->
+## WHY THE PROJECT IS USEFUL
 
 This web application is useful to help people open their minds and hearts to music. The convenience of using one site to not all only listen and watch your fav artist, but also see where the next upcoming show is along with providing the recommendations of other artist or songs. This will work well for the person who does not want to travel across multiple sites. with a click of a bottom you buy a ticket and travel straight to youtube.  
-<!-- HOW USERS CAN GET STARTED WITH THE PROJECT -->
+
+## HOW USERS CAN GET STARTED WITH THE PROJECT
 
 To get started with this website, start by resgistering the site. 
 once registered you can begin to search. 
 upon the hitting in the submit button 
 
-<!-- WHERE USERS CAN GET HELP WITH THE PROJECT -->
+ ## WHERE USERS CAN GET HELP WITH THE PROJECT 
 
 Email the developers.
 by using contact information.
 
-<!-- WHO MAINTAINS AND CONTRIBUTES TO THE PROJECT -->
+## WHO MAINTAINS AND CONTRIBUTES TO THE PROJECT
 
 THE BONES - OR BEHIND THE CURTAIN
 This was an effort of three people. 
@@ -52,4 +53,4 @@ We made our first set files and folders.
 This made the management of the source code easy to handle look at. We also confingured the git repo so that all merges to the master have to be done approved by another member of the repo. This allows the merging of the code to move slightly smoother and to keep all the developers on the same page. 
 
 
-![concert](https://www.wildadventures.com/-/media/Images/HFE/WA_COM/Concerts/2019/Concert-desktop.jpg)
+![muzicXpansion](https://mohegansun.com/content/dam/mohegansun/Images/Entertainment/arena/Carousel-Arena_1-1440x620.jpg)
