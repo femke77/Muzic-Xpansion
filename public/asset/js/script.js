@@ -1,22 +1,16 @@
 //Firebase Config
-var firebaseConfig = {
-    apiKey: "AIzaSyCh61fKpQfYBZ0MRgJcUfEcop57szkaAnc",
-    authDomain: "deploy-f0b72.firebaseapp.com",
-    databaseURL: "https://deploy-f0b72.firebaseio.com",
-    projectId: "deploy-f0b72",
-    storageBucket: "deploy-f0b72.appspot.com",
-    messagingSenderId: "280884255831",
-    appId: "1:280884255831:web:9b5914a751d3d6fb0f9712",
-    measurementId: "G-RFFRMPBZLJ"
-};
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
-var input = $(".form-control");
-var apiKey = "AIzaSyC1aQT_ubRT9xsTsbqwdv46d9VRFYx1mS4";
+
+
+var apiKey = config.YT_API_KEY;
+var seatGeekKey = config.SG_API_KEY;
+
+
 var videoId;
-var seatGeekKey = "MTk1ODIzNzZ8MTU3NDM5NzAwNy40NQ";
 var input;
 var imageURL;
 var numEvents;
@@ -24,49 +18,65 @@ var page = 1;
 var limit = 10;
 var numPages;
 
+
+$("#prev-btn").hide();
+$("#next-btn").hide();
+
 /**
  * Gets input from user search box, uses ajax get to hit Seat Geek api /performer endpoint
  * and find out if performer exists and has event coming up. Sorting is by date/time.
  */
-// ytSearch FUNCTION IS NOW CALLED ON THE THIS SUBMIT BUTTON IS CLICKED AND THIS FUCNTION IS EXICUTED TO SEE IF THERE IS AN ELIGIBLE ARTIST. 
 $("#ytSubmit").on("click", function (event) {
 
     event.preventDefault();
+    $("#next-btn").prop("disabled", true);
+    $("#prev-btn").prop("disabled", true);
     console.log("submit btn on click");
     $("#event-section").empty();
     input = $("#search-input").val().trim();
-    input = input.split(' ').join('-');
-    var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
-        "&client_id=" + seatGeekKey;
+    if (input === ""){
+        $("#modal-message").text("Please enter an artist or band name in the search bar.");
+        $("#oops-modal").modal("show");
+    } else {
+        input = input.split(' ').join('-');
+        var queryURLPerformers = "https://api.seatgeek.com/2/performers?slug=" + input +
+            "&client_id=" + seatGeekKey;
 
-    $.ajax({
-        url: queryURLPerformers,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response)
-            if (response.performers.length === 0) {
-                $("#modal-message").text("Performer not found. Please check spelling and try again.");
-                $("#oops-modal").modal("show");
-            } else {
-                var hasEvent = response.performers[0].has_upcoming_events;
-                imageURL = response.performers[0].image;
-                if (hasEvent === true) {
-                    numEvents = response.performers[0].num_upcoming_events;
-                    numPages = Math.ceil(numEvents / limit);
-                    getEvents();
-                    $("#next-btn").prop("disabled", false);
+        $.ajax({
+            url: queryURLPerformers,
+            method: "GET"
+        })
+            .then(function (response) {
+                console.log(response)
+                if (response.performers.length === 0) {
+                    $("#modal-message").text("Performer not found. Please check spelling and try again.");
+                    $("#oops-modal").modal("show");
                 } else {
-                    $("#event-section").append("No upcoming events for this performer.")
+                    var hasEvent = response.performers[0].has_upcoming_events;
+                    imageURL = response.performers[0].image;
+                    if (hasEvent === true) {
+                        numEvents = response.performers[0].num_upcoming_events;
+                        numPages = Math.ceil(numEvents / limit);
+                        getEvents();
+
+                        if (numEvents > limit) {
+                            $("#next-btn").prop("disabled", false);
+                        }
+
+                    } else {
+                        $("#event-section").append("No upcoming events for this performer.")
+                    }
+                    ytSearch();
                 }
-                ytSearch();
-            }
-        });
+            });
+    }
+   
 });
 
 // HIDING THE RECOMMENDED BUTTON FROM THE USER.
 $("#rec").hide();
-// THIS FUCTION WILL EXECUTE AT SEARCH ON YOUTUBE ONCE AN ARTIST ENTERED IN TO THE SEARCH BAR AND THE SUBMITT BUTTON IS CLICKED. 
+
+// THIS FUNCTION WILL EXECUTE A SEARCH ON YOUTUBE ONCE AN ARTIST ENTERED IN TO THE SEARCH BAR AND THE SUBMIT BUTTON IS CLICKED. 
 function ytSearch() {
     var inputVal = $("#search-input").val().trim();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + inputVal + "&key=" + apiKey;
@@ -106,14 +116,7 @@ function ytSearch() {
         };
     });
 }
-// =====================================================
-// TOO DELETE
-// function checkForEvents() {
 
-
-// }
-// TOO DELETE
-// =====================================================
 /**
  * Gets events from the Seat Geek /events endpoint using performers argument from user input box
  * MomentJS is used to convert the date time to a more readable format.
@@ -130,7 +133,8 @@ function getEvents() {
     })
         .then(function (response) {
             console.log(response);
-
+            $("#prev-btn").show();
+            $("#next-btn").show();
             var results = response.events;
             for (let i = 0; i < results.length; i++) {
                 var $eventList = $("<ul>");
@@ -151,6 +155,7 @@ function getEvents() {
                 $eventListItem.append("Location: " + results[i].venue.display_location + "<br/>");
                 var $ticketBtn = $("<button>", {
                     text: "Buy Tickets",
+                    class: "btn btn-primary",
                     click: function () {
                         window.open(results[i].url);
                     }
@@ -158,13 +163,16 @@ function getEvents() {
                 $eventListItem.append($ticketBtn);
 
                 $eventList.append($eventListItem);
+                
             }
-        })
+            $(".main")[0].scrollIntoView();
+        });
+       
 }
 
 
 
-//--PAGINATION METHODS--------------------------------
+//--PAGINATION METHODS FOR EVENT LISTS----------------------------
 $("#next-btn").on("click", function () {
     if (page <= numPages) {
         page++;
@@ -187,7 +195,7 @@ $("#prev-btn").on("click", function () {
     }
 });
 
-
+//------GET RECOMMENDED VIDEOS AND DISPLAY--------------------------------
 $("#rec").on("click", function (event) {
 
 
@@ -236,3 +244,9 @@ $("#rec").on("click", function (event) {
 });
 
 
+
+
+
+
+
+ 

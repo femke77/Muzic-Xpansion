@@ -57,46 +57,54 @@
               Up</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" data-toggle="modal" id="logout">Log Out</a>
-            </li>
+            <a class="nav-link js-scroll-trigger" data-toggle="modal" id="logout">Log Out</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-<!-- LOGIN MODAL -->
-<div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
-aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="staticBackdropLabel">Welcome Back.</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body" id="login">
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="EmailAddress">Email Address</label>
-          <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
-            placeholder="youremail@domain.com" required>
+
+
+  <!-- LOGIN MODAL -->
+  <div class="modal fade" id="login-modal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Welcome Back!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="form-group">
-          <label for="Password" id="loginPassword">Password</label>
-          <input type="password" class="form-control" id="createPassword" placeholder="Create password" required>
+        <div class="modal-body" id="login">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="EmailAddress">Email Address</label>
+              <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                placeholder="youremail@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label for="Password" id="loginPassword">Password</label>
+              <input type="password" class="form-control" id="userPassword" placeholder="password" required>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="submit" class="btn btn-dark" id="newUser">Login</button>
+        <div class="modal-footer modal-alert-login">
+            <div class="alert alert-danger" id="alert-login" role="alert">
+                <p id="alert-login-msg"></p>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+          <button type="submit" class="btn btn-dark" id="user">Login</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 
   <!-- REGISTRATION MODAL -->
-  <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
+  <div class="modal fade" id="register-modal" data-backdrop="static" static="true" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -106,6 +114,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body" id="register">
           <form id="registrationForm">
             <div class="form-group">
@@ -122,12 +131,35 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             </div>
           </form>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer modal-alert">
+            <div class="alert alert-danger" id="alert-reg" role="alert">
+              <p id="alert-reg-msg"></p>
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
           <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
         </div>
       </div>
     </div>
   </div>
+
+ <!-- LOGOUT MODAL -->
+ <div class="modal" id="logout-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">You have successfully logged out.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
 
   <!-- HEADER -->
   <header class="masthead">
@@ -137,7 +169,7 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Stream. Discover. Go.</h2>
         <a href="#about" class="btn btn-primary js-scroll-trigger">&#9660;</a>
       </div>
-    </header>
+  </header>
 
   <!-- GETTING STARTED -->
   <section id="about" class="about-section text-center">
@@ -150,79 +182,79 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
             style="width:50%; color:#fff; display: block; margin: 0 auto;">Sign Up for Free</a>
 
 
-          </div>
-          <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
         </div>
-    </section>
-
-    <!-- SEARCH BAR -->
-    <a name="search">
-      <div id="youtube search" style="padding:40px">
-        <h3>Start Your Search</h3>
-        <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
-          id="search-input"><br />
-        <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
-
-        <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-        <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
-    </a>
-    <!--CARD FOR HOLDING EVENT LISTS  -->
-    <div class="row">
-      <div class="col-sm-6">
-        <br>
-        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-        <div class="card">
-
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Video Search</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="video">
-          </div>
-        </div>
-        <button type="button" id="rec" class="btn btn-primary">Recommended</button>
+        <img src="asset/img/ipad.png" class="img-fluid" alt="How to use muzicXpansion">
       </div>
+  </section>
 
-      <div class="col-sm-6">
-        <br>
+  <!-- SEARCH BAR -->
+  <a name="search">
+    <div id="youtube search" style="padding:40px">
+      <h3>Start Your Search</h3>
+      <input class="form-control" type="text" placeholder="Type in an Artist" style="width: 400px;"
+        id="search-input"><br />
+      <button type="button" id="ytSubmit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
 
-        <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
-        <div class="card">
+      <!-- <div id="video" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+      <!-- <div id="video2" style="padding:40px;display:block;margin-right: auto; margin-left: auto;text-align:center;"></div><br/> -->
+  </a>
+  <!--CARD FOR HOLDING EVENT LISTS  -->
+  <div class="row main">
+    <div class="col-sm-6">
+      <br>
+      <!-- This card will initially be made up of a card and listgroup for each of the searched videos retrieved -->
+      <div class="card">
 
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Events</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="event-section">
-          </div>
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Video Search</strong>
         </div>
-        <button id="prev-btn" disabled="true">Previous</button>
-        <button id="next-btn" disabled="true">Next</button>
 
+        <div class="card-body" id="video">
+        </div>
       </div>
+      <button type="button" id="rec" class="btn btn-primary">Recommended</button>
     </div>
+
+    <div class="col-sm-6">
+      <br>
+
+     
+
+      <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
+      <div class="card">
+
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Events</strong>
+        </div>
+        <div class="card-body" id="event-section">
+        </div>
+      </div>
+      <button id="prev-btn" disabled="true">Previous</button>
+      <button id="next-btn" disabled="true">Next</button>
+   
+
     </div>
+  </div>  
+  </div>
 
   <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
- 
+
   <div class="row">
     <div class="col-sm-12">
       <br>
 
-        <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
-        <div class="card float-left;">
+      <!-- This card will initially be made up of a card and wells for each of the searched videos retrieved -->
+      <div class="card float-left;">
 
-          <!-- card Heading for the retrieved events box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i>Recommended Videos</strong>
-          </div>
+        <!-- card Heading for the retrieved events box -->
+        <div class="card-header">
+          <strong>
+            <i class="fa fa-table"></i>Recommended Videos</strong>
+        </div>
 
         <!-- This main card will hold each of the resulting articles -->
         <div class="card-body" id="video2">
@@ -269,34 +301,44 @@ aria-labelledby="staticBackdropLabel" aria-hidden="true">
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
 
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+      <!-- BOOTSTRAP AND JQUERY (full)-->
+      <script src="asset/jquery/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+      <script src="asset/js/bootstrap.bundle.min.js"></script>
+
+      <!-- CONFIG.JS -->
+      <script src="config.js"></script>
+
+
+      <!-- FIREBASE -->
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="asset/jquery/jquery.min.js"></script>
-    <script src="asset/js/bootstrap.bundle.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script src="asset/jquery/jquery.min.js"></script>
+      <script src="asset/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="asset/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="asset/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="asset/js/grayscale.min.js"></script>
+      <!-- Custom scripts for this template -->
+      <script src="asset/js/grayscale.min.js"></script>
 
-    <!-- MOMENTJS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <!-- MOMENTJS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-  <!-- JAVASCRIPT -->
-  <script src="asset/js/auth.js"></script>
-  <script src="asset/js/script.js"></script>
+      <!-- JAVASCRIPT -->
+      <script src="asset/js/auth.js"></script>
+      <script src="asset/js/script.js"></script>
 
-  </body>
+</body>
 
 </html>
