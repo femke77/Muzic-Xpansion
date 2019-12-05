@@ -91,20 +91,20 @@
           </form>
         </div>
         <div class="modal-footer modal-alert-login">
-            <div class="alert alert-danger" id="alert-login" role="alert">
-                <p id="alert-login-msg"></p>
-                  <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-          <button type="submit" class="btn btn-dark" id="user">Login</button>
+          <div class="alert alert-danger" id="alert-login" role="alert">
+            <p id="alert-login-msg"></p>
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <button type="submit" class="btn btn-dark" data-dismiss="modal" id="user">Login</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- REGISTRATION MODAL -->
-  <div class="modal fade" id="register-modal" data-backdrop="static" static="true" tabindex="-1" role="dialog"
+  <div class="modal fade" id="register-modal" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -132,20 +132,20 @@
           </form>
         </div>
         <div class="modal-footer modal-alert">
-            <div class="alert alert-danger" id="alert-reg" role="alert">
-              <p id="alert-reg-msg"></p>
-                <button type="button" class="close" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-          <button type="submit" class="btn btn-dark" id="newUser">Sign Up</button>
+          <div class="alert alert-danger" id="alert-reg" role="alert">
+            <p id="alert-reg-msg"></p>
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <button type="submit" class="btn btn-dark" data-dismiss="modal" id="newUser">Sign Up</button>
         </div>
       </div>
     </div>
   </div>
 
- <!-- LOGOUT MODAL -->
- <div class="modal" id="logout-modal" tabindex="-1" role="dialog">
+  <!-- LOGOUT MODAL -->
+  <div class="modal" id="logout-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -154,7 +154,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -220,7 +220,7 @@
     <div class="col-sm-6">
       <br>
 
-     
+
 
       <!-- This card will initially be made up of a card and wells for each of the events retrieved -->
       <div class="card">
@@ -235,10 +235,10 @@
       </div>
       <button id="prev-btn" disabled="true">Previous</button>
       <button id="next-btn" disabled="true">Next</button>
-   
+
 
     </div>
-  </div>  
+  </div>
   </div>
 
   <!-- THIS IS THE RECOMMENDED SECTION. HERE IS WHERE THESE BUTTONS WILL DISPLAY -->
@@ -262,7 +262,7 @@
       </div>
     </div>
   </div>
-</div><!-- THIS ENDS THE CONTAINER -->
+  </div><!-- THIS ENDS THE CONTAINER -->
 
   <!-- OOPS MODAL FOR ERRORS (DYNAMIC MESSAGE BODY)-->
   <div class="modal fade" id="oops-modal" tabindex="-1" role="dialog">
@@ -313,18 +313,12 @@
       <!-- CONFIG.JS -->
       <script src="config.js"></script>
 
-
       <!-- FIREBASE -->
       <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-storage.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
 
-
-
-      <!-- Bootstrap core JavaScript -->
-      <script src="asset/jquery/jquery.min.js"></script>
-      <script src="asset/js/bootstrap.bundle.min.js"></script>
 
       <!-- Plugin JavaScript -->
       <script src="asset/jquery-easing/jquery.easing.min.js"></script>

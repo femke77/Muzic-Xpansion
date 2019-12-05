@@ -100,7 +100,7 @@ $("#logout").on("click", function (event) {
     firebase.auth().signOut()
         .then(function () {
             console.log("user signed out")
-            $("#logout-modal").modal("show");
+    
         });
 })
 
